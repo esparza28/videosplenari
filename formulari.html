@@ -28,8 +28,8 @@
             <div class="row col-sm" id="input_fields_wrap">
                 <div class="d-flex">
                     <label class="form-group p-1" for="url">URL youtube: </label>
-                    <input class="form-group col col-md-6 m-1" type="text" accept="text/plain" name="url" class="form-control" id="url"
-                    placeholder="Url video youtube">
+                    <input class="form-group col col-md-6 m-1" type="text" accept="text/plain" name="url"
+                        class="form-control" id="url" placeholder="Url video youtube" required>
                 </div>
                 <div>
                     <label class="form-group col" for="url">Fitxer de la sessió: </label>
@@ -39,11 +39,11 @@
                 <label class="form-group col-md-6" for="punt">Punt del dia</label>
                 <label class="form-group col-md-6" for="time">Temps</label>
 
-                <div class="form-group row">
+                <div class="form-group row" id="divPunts">
                     <input class="form-group col m-1" type="text" name="punt" class="form-control" id="punt0"
-                        placeholder="Punt del dia">
-                    <input class="form-group col m-1" type="text" name="time" class="form-control" id="time0"
-                        placeholder="Temps">
+                        placeholder="Punt del dia" required>
+                    <input class="form-group col m-1" type="text" name="punt" class="form-control" id="time0"
+                        placeholder="Temps" required>
                     <button class="col-1 btn btn-outline-danger p-0 btn-sm" id="remove_field">
                         <i class="fas fa-minus-circle"></i>Eliminar
                     </button>
@@ -83,8 +83,8 @@
                 x++; //text box increment
                 $(wrapper).append(
                     '<div class="form-group row">' +
-                    '<input class="form-group col m-1" type="text" name="punt" class="form-control" id="punt' + (x - 1) + '" placeholder="Punt del dia">' +
-                    '<input class="form-group col m-1" type="text" name="time" class="form-control" id="time' + (x - 1) + '" placeholder="Temps">' +
+                    '<input class="form-group col m-1" type="text" name="punt" class="form-control" id="punt' + (x - 1) + '" placeholder="Punt del dia" required> ' +
+                    '<input class="form-group col m-1" type="text" name="punt" class="form-control" id="time' + (x - 1) + '" placeholder="Temps" required> ' +
                     '<button class="col-1 btn btn-outline-danger my-2" id="remove_field"><i class="fas fa-minus-circle"></i>Eliminar</button></div>'
                 ); //add input box
             }
@@ -98,36 +98,45 @@
         function get() {
             var form = document.getElementById('myForm');
             var array = [];
+            let url = {};
+            url['url'] = document.getElementById('url').value;
+            array.push(url);
 
-/*            obj['url'] = document.getElementById('url').value;
-            array.push(obj); */
-
-            for (var i = 0; i < form.getElementsByTagName('input').length / 2; i++) {
+            for (var i = 0; i < document.getElementsByName('punt').length / 2; i++) {
+                let obj = {};
                 let puntname = '#punt' + i;
                 let timename = '#time' + i;
                 var punt = document.querySelector(puntname);
                 var time = document.querySelector(timename);
 
-                let obj = {};
                 obj['punt'] = i;
                 obj['name'] = punt.value;
                 obj['time'] = time.value;
 
                 array.push(obj);
             }
+            
             let jsonString = JSON.stringify(array);
             let json = JSON.parse(jsonString);
             
-            console.log(json);
-
+            console.log(json[0]['url']);
             //guardar com a fitxer
+            jsonName = 'Plenari_' + formatDate(new Date());;
             var blob = new Blob([jsonString],
                 { type: "text/plain;charset=utf-8" });
-            saveAs(blob, "caca.json");
-            
+            saveAs(blob, jsonName+".json");
+
             return false;
         }
 
+        function formatDate(date) {
+            return date.getDate() +
+                "/" + (date.getMonth() + 1) +
+                "/" + date.getFullYear() +
+                "_" + date.getHours() +
+                ":" + date.getMinutes() +
+                ":" + date.getSeconds();
+        }
 
     </script>
 </body>
