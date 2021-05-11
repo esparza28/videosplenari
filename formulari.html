@@ -28,22 +28,20 @@
             <div class="row col-sm" id="input_fields_wrap">
                 <div class="d-flex">
                     <label class="form-group p-1" for="url">URL youtube: </label>
-                    <input class="form-group col col-md-6 m-1" type="text" accept="text/plain" name="url"
-                        class="form-control" id="url" placeholder="Url video youtube" required>
-                </div>
-                <div>
-                    <label class="form-group col" for="url">Fitxer de la sessió: </label>
-                    <input class="form-group col m-1" type="file" name="file" class="form-control" id="file">
+                    <input class="form-group col col-md-6 m-1" type="url" accept="text/plain" name="url"
+                        class="form-control" id="url" placeholder="Ex. https://www.youtube.com/watch?v=ShDXPTN4jS8"
+                        required>
                 </div>
 
+
                 <label class="form-group col-md-6" for="punt">Punt del dia</label>
-                <label class="form-group col-md-6" for="time">Temps</label>
+                <label class="form-group col-md-6" for="time">Temps (hh:mm:ss)</label>
 
                 <div class="form-group row" id="divPunts">
                     <input class="form-group col m-1" type="text" name="punt" class="form-control" id="punt0"
-                        placeholder="Punt del dia" required>
+                        placeholder="Ex. Rebaixada de sous dels regidors." required>
                     <input class="form-group col m-1" type="text" name="punt" class="form-control" id="time0"
-                        placeholder="Temps" required>
+                        placeholder="Ex. 00:02:05" required>
                     <button class="col-1 btn btn-outline-danger p-0 btn-sm" id="remove_field">
                         <i class="fas fa-minus-circle"></i>Eliminar
                     </button>
@@ -53,6 +51,11 @@
                 <button class="col-1 btn btn-outline-success my-2" id="add_button"><i
                         class="fas fa-plus-circle"></i>Afegir
                 </button>
+            </div>
+            <div>
+                <label class="form-group col" for="url">Fitxer de la sessió: </label>
+                <input class="form-group col m-1" type="file" name="file" class="form-control" id="file"
+                    accept=".txt, .csv" required disabled>
             </div>
             <div class="row">
                 <button class="btn btn-outline-primary btn-sm" type="submit">Registrar</button>
@@ -69,7 +72,6 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf"
         crossorigin="anonymous"></script>
-    <!-- <script src="https://code.jquery.com/jquery-1.9.1.min.js"></script> -->
 
     <script>
         var max_fields = 10; //maximum input boxes allowed
@@ -83,24 +85,76 @@
                 x++; //text box increment
                 $(wrapper).append(
                     '<div class="form-group row">' +
-                    '<input class="form-group col m-1" type="text" name="punt" class="form-control" id="punt' + (x - 1) + '" placeholder="Punt del dia" required> ' +
-                    '<input class="form-group col m-1" type="text" name="punt" class="form-control" id="time' + (x - 1) + '" placeholder="Temps" required> ' +
+                    '<input class="form-group col m-1" type="text" name="punt" class="form-control" id="punt' + (x - 1) + '" placeholder="Ex. Rebaixada de sous dels regidors." required> ' +
+                    '<input class="form-group col m-1" type="text" name="punt" class="form-control" id="time' + (x - 1) + '" placeholder="Ex. 00:02:05" required> ' +
                     '<button class="col-1 btn btn-outline-danger my-2" id="remove_field"><i class="fas fa-minus-circle"></i>Eliminar</button></div>'
                 ); //add input box
             }
         });
 
-        $(wrapper).on("click", "#remove_field", function (e) { //user click on remove text
+        //user click on remove text
+        $(wrapper).on("click", "#remove_field", function (e) {
             e.preventDefault(); $(this).parent('div').remove(); x--;
         });
+
+        $('#url').on('input', function(){
+            if($(this).val()){
+                $('#file').prop('disabled', false);
+            }else{
+                $('#file').prop('disabled', true);
+            }
+        })
+
+        //$('#file').on('change', function () {
+        function getFile() {
+            var file = $('#file')[0].files[0];
+            var fileReader = new FileReader();
+            fileReader.readAsText(file);
+            fileReader.onload = function () {
+                var txt = fileReader.result;
+                var lines = txt.toString().split("\n");
+                var lines = txt.toString().split("\r");
+                var headers = lines[0].split(";");
+
+                //convert from txt to json file
+                var result = [];
+                var frames = [];
+                for (let i = 1; i < lines.length; i++) {
+                    var obj = {};
+                    var currentline = lines[i].split(";");
+
+                    for (let j = 0; j < headers.length; j++) {
+                        obj[headers[j]] = currentline[j];
+                    }
+                    result.push(obj);
+                }
+                let jsonString = JSON.stringify(result);
+                let json = JSON.parse(jsonString);
+
+                //url generator with time, url and speaker 
+                for (let i = 0; i < lines.length - 1; i++) {
+                    var url = {};
+                    let time = json[i]['00:00:00'];
+                    url['url'] = urlWithSecs(document.getElementById('url').value, time);
+
+                    var speak = 'silencio';
+                    for (let j = 0; j < headers.length; j++) {
+                        if (json[i]['AUDIO ' + j] === 'HABLA') {
+                            speak = j;
+                            break;
+                        }
+                    }
+                    url['speaker'] = speak;
+                    frames.push(url);
+                }
+                console.log(frames);
+            }
+        }
 
         //generar json desde form
         function get() {
             var form = document.getElementById('myForm');
             var array = [];
-            let url = {};
-            url['url'] = document.getElementById('url').value;
-            array.push(url);
 
             for (var i = 0; i < document.getElementsByName('punt').length / 2; i++) {
                 let obj = {};
@@ -110,21 +164,21 @@
                 var time = document.querySelector(timename);
 
                 obj['punt'] = i;
-                obj['name'] = punt.value;
+                obj['title'] = punt.value;
                 obj['time'] = time.value;
+                obj['url'] = urlWithSecs(document.getElementById('url').value, time.value);
 
                 array.push(obj);
             }
-            
+
             let jsonString = JSON.stringify(array);
             let json = JSON.parse(jsonString);
-            
-            console.log(json[0]['url']);
+
             //guardar com a fitxer
             jsonName = 'Plenari_' + formatDate(new Date());;
             var blob = new Blob([jsonString],
                 { type: "text/plain;charset=utf-8" });
-            saveAs(blob, jsonName+".json");
+            saveAs(blob, jsonName + ".json");
 
             return false;
         }
@@ -136,6 +190,12 @@
                 "_" + date.getHours() +
                 ":" + date.getMinutes() +
                 ":" + date.getSeconds();
+        }
+
+        function urlWithSecs(url, time) {
+            var d = new Date("0001-01-01T" + time);
+            var seconds = d.getHours() * 120 + d.getMinutes() * 60 + d.getSeconds();
+            return url + "&t=" + seconds + "s";
         }
 
     </script>
