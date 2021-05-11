@@ -32,11 +32,14 @@
                         class="form-control" id="url" placeholder="Ex. https://www.youtube.com/watch?v=ShDXPTN4jS8"
                         required>
                 </div>
-
+                <div>
+                    <label class="form-group col" for="url">Fitxer de la sessió: </label>
+                    <input class="form-group col m-1" type="file" name="file" class="form-control" id="file"
+                        accept=".txt, .csv" required disabled>
+                </div>
 
                 <label class="form-group col-md-6" for="punt">Punt del dia</label>
                 <label class="form-group col-md-6" for="time">Temps (hh:mm:ss)</label>
-
                 <div class="form-group row" id="divPunts">
                     <input class="form-group col m-1" type="text" name="punt" class="form-control" id="punt0"
                         placeholder="Ex. Rebaixada de sous dels regidors." required>
@@ -52,11 +55,7 @@
                         class="fas fa-plus-circle"></i>Afegir
                 </button>
             </div>
-            <div>
-                <label class="form-group col" for="url">Fitxer de la sessió: </label>
-                <input class="form-group col m-1" type="file" name="file" class="form-control" id="file"
-                    accept=".txt, .csv" required disabled>
-            </div>
+
             <div class="row">
                 <button class="btn btn-outline-primary btn-sm" type="submit">Registrar</button>
             </div>
@@ -77,6 +76,7 @@
         var max_fields = 10; //maximum input boxes allowed
         var wrapper = $("#input_fields_wrap"); //Fields wrapper
         var add_button = $("#add_button"); //Add button ID
+        var array = [];
 
         var x = 1; //initlal text box count
         $(add_button).click(function (e) { //on add input button click
@@ -105,8 +105,8 @@
             }
         })
 
-        //$('#file').on('change', function () {
-        function getFile() {
+        $('#file').on('change', function () {
+        //function getFile() {
             var file = $('#file')[0].files[0];
             var fileReader = new FileReader();
             fileReader.readAsText(file);
@@ -147,14 +147,17 @@
                     url['speaker'] = speak;
                     frames.push(url);
                 }
-                console.log(frames);
+                let ob = {};
+                ob['links'] = frames;
+                array.push(ob);
             }
-        }
+            console.log(array);
+        })
 
         //generar json desde form
         function get() {
             var form = document.getElementById('myForm');
-            var array = [];
+            let punts = [];
 
             for (var i = 0; i < document.getElementsByName('punt').length / 2; i++) {
                 let obj = {};
@@ -168,8 +171,11 @@
                 obj['time'] = time.value;
                 obj['url'] = urlWithSecs(document.getElementById('url').value, time.value);
 
-                array.push(obj);
+                punts.push(obj);
             }
+            let ob = {};
+            ob['puntsDia'] = punts;
+            array.push(ob);
 
             let jsonString = JSON.stringify(array);
             let json = JSON.parse(jsonString);
