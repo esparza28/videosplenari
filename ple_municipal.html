@@ -17,14 +17,15 @@
 	</head>
 	<body>
     <div class="container p-3">
+      <!-- <iframe name="youtubeframe" id="youtubeframe" src="https://www.youtube.com/watch?v=ShDXPTN4jS8" frameborder="0" scrolling="no"></iframe> -->
       <div class="accordion" id="accordionExample">
           <div class="accordion-item">
             <h2 class="accordion-header" id="headingOne">
-              <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+              <button class="accordion-button" type="button" data-bs-toggle="collapse" type="button" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
                 Accordion Item #1
               </button>
             </h2>
-            <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+            <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
               <div class="accordion-body">
                 <strong>This is the first item's accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
               </div>
@@ -57,9 +58,41 @@
     <!-- <script src="https://code.jquery.com/jquery-1.9.1.min.js"></script> -->
     
     <script>
-        $(document).ready(function(){
-            $('.collapse').collapse();
+      var array=[];
+      $.getJSON('txt/Plenari_copy.json', function(json){
+        array = json;
+        //console.log(array[0]['links'][1]['speaker']);
+      }) 
+      /*     $(document).ready(function(){
+              //$('.collapse').collapse();
+              $('#youtubeFrame').attr('src', url);
+          }) 
+      */
+
+      var i=1
+      $(document).ready(function(){
+        console.log(array['sessio'+i]['links']);       
+/*         for (let i = 0; i < array.length; i++) {
+          console.log(i);
+          if(i == 0){
+            console.log(array[i]['links']);
+          }
+          if(i == 1){
+            console.log(array[i]['puntsDia']);
+          } */
+
+          
         })
+
+/*         for (let i = 0; i < array[1]['puntsDia'].length; i++) {
+          console.log(array[0]['links'][i]);
+        }  */
+
+      //}) 
+
+
+
+        
     </script>
 
 	</body>

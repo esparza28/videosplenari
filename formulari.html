@@ -78,6 +78,13 @@
         var add_button = $("#add_button"); //Add button ID
         var array = [];
 
+        var plenari = {};
+        plenari = { 'sessioX': { 
+            'data': formatDate(new Date()), 
+            "links": [], 
+            "puntsDia": [] } 
+        };
+
         var x = 1; //initlal text box count
         $(add_button).click(function (e) { //on add input button click
             e.preventDefault();
@@ -97,16 +104,16 @@
             e.preventDefault(); $(this).parent('div').remove(); x--;
         });
 
-        $('#url').on('input', function(){
-            if($(this).val()){
+        $('#url').on('input', function () {
+            if ($(this).val()) {
                 $('#file').prop('disabled', false);
-            }else{
+            } else {
                 $('#file').prop('disabled', true);
             }
         })
 
         $('#file').on('change', function () {
-        //function getFile() {
+            //function getFile() {
             var file = $('#file')[0].files[0];
             var fileReader = new FileReader();
             fileReader.readAsText(file);
@@ -118,7 +125,7 @@
 
                 //convert from txt to json file
                 var result = [];
-                var frames = [];
+                var frames = [];                
                 for (let i = 1; i < lines.length; i++) {
                     var obj = {};
                     var currentline = lines[i].split(";");
@@ -192,10 +199,7 @@
         function formatDate(date) {
             return date.getDate() +
                 "/" + (date.getMonth() + 1) +
-                "/" + date.getFullYear() +
-                "_" + date.getHours() +
-                ":" + date.getMinutes() +
-                ":" + date.getSeconds();
+                "/" + date.getFullYear();
         }
 
         function urlWithSecs(url, time) {
