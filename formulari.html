@@ -43,7 +43,7 @@
                 <div class="form-group row" id="divPunts">
                     <input class="form-group col m-1" type="text" name="punt" class="form-control" id="punt0"
                         placeholder="Ex. Rebaixada de sous dels regidors." required>
-                    <input class="form-group col m-1" type="text" name="punt" class="form-control" id="time0"
+                    <input class="form-group col m-1" type="time" step="1" name="punt" class="form-control" id="time0"
                         placeholder="Ex. 00:02:05" required>
                     <button class="col-1 btn btn-outline-danger p-0 btn-sm" id="remove_field">
                         <i class="fas fa-minus-circle"></i>Eliminar
@@ -76,14 +76,8 @@
         var max_fields = 10; //maximum input boxes allowed
         var wrapper = $("#input_fields_wrap"); //Fields wrapper
         var add_button = $("#add_button"); //Add button ID
-        var array = [];
-
-        var plenari = {};
-        plenari = { 'sessioX': { 
-            'data': formatDate(new Date()), 
-            "links": [], 
-            "puntsDia": [] } 
-        };
+        var plenari;
+        plenari = '{ "sessioX": {"data": "' + formatDate(new Date()) + '" , "links": '; //"puntsDia":  
 
         var x = 1; //initlal text box count
         $(add_button).click(function (e) { //on add input button click
@@ -93,7 +87,7 @@
                 $(wrapper).append(
                     '<div class="form-group row">' +
                     '<input class="form-group col m-1" type="text" name="punt" class="form-control" id="punt' + (x - 1) + '" placeholder="Ex. Rebaixada de sous dels regidors." required> ' +
-                    '<input class="form-group col m-1" type="text" name="punt" class="form-control" id="time' + (x - 1) + '" placeholder="Ex. 00:02:05" required> ' +
+                    '<input class="form-group col m-1" type="time" step="1" name="punt" class="form-control" id="time' + (x - 1) + '" placeholder="Ex. 00:02:05" required> ' +
                     '<button class="col-1 btn btn-outline-danger my-2" id="remove_field"><i class="fas fa-minus-circle"></i>Eliminar</button></div>'
                 ); //add input box
             }
@@ -156,13 +150,14 @@
                 }
                 let ob = {};
                 ob['links'] = frames;
-                array.push(ob);
-            }
-            console.log(array);
-        })
+                plenari += JSON.stringify(ob['links']);
+                plenari += ', ';
+            }            
+        });
 
         //generar json desde form
         function get() {
+            plenari += '"puntsDia": ';
             var form = document.getElementById('myForm');
             let punts = [];
 
@@ -181,15 +176,14 @@
                 punts.push(obj);
             }
             let ob = {};
-            ob['puntsDia'] = punts;
-            array.push(ob);
-
-            let jsonString = JSON.stringify(array);
-            let json = JSON.parse(jsonString);
+            ob['punts'] = punts;
+            plenari += JSON.stringify(ob['punts']);
+            plenari += '}}';
+            //console.log(plenari);
 
             //guardar com a fitxer
-            jsonName = 'Plenari_' + formatDate(new Date());;
-            var blob = new Blob([jsonString],
+            jsonName = 'plenari';
+            var blob = new Blob([plenari],
                 { type: "text/plain;charset=utf-8" });
             saveAs(blob, jsonName + ".json");
 
