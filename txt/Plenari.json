@@ -1,1 +1,85 @@
-{ "sessioX": {"data": "14/5/2021" , "links": [{"url":"https://www.youtube.com/watch?v=x-mhgmHYrRo&t=6s","speaker":1},{"url":"https://www.youtube.com/watch?v=x-mhgmHYrRo&t=16s","speaker":"silencio"},{"url":"https://www.youtube.com/watch?v=x-mhgmHYrRo&t=27s","speaker":15},{"url":"https://www.youtube.com/watch?v=x-mhgmHYrRo&t=38s","speaker":"silencio"},{"url":"https://www.youtube.com/watch?v=x-mhgmHYrRo&t=44s","speaker":21},{"url":"https://www.youtube.com/watch?v=x-mhgmHYrRo&t=58s","speaker":"silencio"},{"url":"https://www.youtube.com/watch?v=x-mhgmHYrRo&t=62s","speaker":3},{"url":"https://www.youtube.com/watch?v=x-mhgmHYrRo&t=70s","speaker":"silencio"},{"url":"https://www.youtube.com/watch?v=x-mhgmHYrRo&t=72s","speaker":17},{"url":"https://www.youtube.com/watch?v=x-mhgmHYrRo&t=84s","speaker":"silencio"},{"url":"https://www.youtube.com/watch?v=x-mhgmHYrRo&t=86s","speaker":10},{"url":"https://www.youtube.com/watch?v=x-mhgmHYrRo&t=93s","speaker":"silencio"},{"url":"https://www.youtube.com/watch?v=x-mhgmHYrRo&t=98s","speaker":"silencio"}], "puntsDia": [{"punt":0,"title":"qwe","time":"09:23:46","url":"https://www.youtube.com/watch?v=x-mhgmHYrRo&t=2506s"},{"punt":1,"title":"121","time":"09:26:50","url":"https://www.youtube.com/watch?v=x-mhgmHYrRo&t=2690s"}]}}
+{
+    "sessioX": {
+        "data": "14/5/2021",
+        "links": [
+            {
+                "url": "https://www.youtube.com/watch?v=x-mhgmHYrRo&t=6s",
+                "speaker": 1
+            },
+            {
+                "url": "https://www.youtube.com/watch?v=x-mhgmHYrRo&t=16s",
+                "speaker": "silencio"
+            },
+            {
+                "url": "https://www.youtube.com/watch?v=x-mhgmHYrRo&t=27s",
+                "speaker": 15
+            },
+            {
+                "url": "https://www.youtube.com/watch?v=x-mhgmHYrRo&t=38s",
+                "speaker": "silencio"
+            },
+            {
+                "url": "https://www.youtube.com/watch?v=x-mhgmHYrRo&t=44s",
+                "speaker": 21
+            },
+            {
+                "url": "https://www.youtube.com/watch?v=x-mhgmHYrRo&t=58s",
+                "speaker": "silencio"
+            },
+            {
+                "url": "https://www.youtube.com/watch?v=x-mhgmHYrRo&t=62s",
+                "speaker": 3
+            },
+            {
+                "url": "https://www.youtube.com/watch?v=x-mhgmHYrRo&t=70s",
+                "speaker": "silencio"
+            },
+            {
+                "url": "https://www.youtube.com/watch?v=x-mhgmHYrRo&t=72s",
+                "speaker": 17
+            },
+            {
+                "url": "https://www.youtube.com/watch?v=x-mhgmHYrRo&t=84s",
+                "speaker": "silencio"
+            },
+            {
+                "url": "https://www.youtube.com/watch?v=x-mhgmHYrRo&t=86s",
+                "speaker": 10
+            },
+            {
+                "url": "https://www.youtube.com/watch?v=x-mhgmHYrRo&t=93s",
+                "speaker": "silencio"
+            },
+            {
+                "url": "https://www.youtube.com/watch?v=x-mhgmHYrRo&t=98s",
+                "speaker": "silencio"
+            }
+        ],
+        "puntsDia": [
+            {
+                "punt": 0,
+                "title": "qwe",
+                "time": "00:00:58",
+                "url": "https://www.youtube.com/watch?v=x-mhgmHYrRo&t=2506s"
+            },
+            {
+                "punt": 1,
+                "title": "xaxa",
+                "time": "00:06:50",
+                "url": "https://www.youtube.com/watch?v=x-mhgmHYrRo&t=2690s"
+            },
+            {
+                "punt": 2,
+                "title": "caca",
+                "time": "00:08:50",
+                "url": "https://www.youtube.com/watch?v=x-mhgmHYrRo&t=2690s"
+            },
+            {
+                "punt": 3,
+                "title": "zaza",
+                "time": "00:10:50",
+                "url": "https://www.youtube.com/watch?v=x-mhgmHYrRo&t=2690s"
+            }
+        ]
+    }
+}
