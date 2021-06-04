@@ -21,12 +21,27 @@
         <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/ShDXPTN4jS8" allowfullscreen></iframe> 
       </div> -->
       <h2>Plenari</h2>
-      <h3>Punts del dia</h3>
-      <div class="accordion" id="accordion_punts"></div>
-      <h3>Intervencions</h3>
-      <div class="accordion" id="accordion_intervencions"></div>
-    </div>
+<!--       <h3>Punts del dia</h3>-->
+      <div class="accordion" id="accordion_punts">
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="headingPunts">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="collapsePunts" aria-expanded="true" aria-controls="collapsePunts">
+              Punts del dia
+            </button>
+          </h2>
+          <div id="collapsePunts" class="accordion-collapse collapse" aria-labelledby="headingPunts" data-bs-parent="#accordion_punts">
+            <div class="accordion-body">
+              <p>caca</p>
+              <p>caca</p>
+              <p>asdasd</p>
+            </div>
+          </div>
+        </div>
 
+        <h3>Intervencions</h3>
+        <div class="accordion" id="accordion_intervencions"></div>
+      </div>
+  </div> 
 
 		<!-- Theme Custom -->
 		<script src="js/custom.js"></script>
@@ -61,7 +76,7 @@
             '</h2>'+
             '<div id="collapse'+i+'" class="accordion-collapse collapse" aria-labelledby="heading'+i+'" data-bs-parent="#accordion_punts">'+
               '<div class="accordion-body">'+
-                '<a href="'+ array['sessioX']['puntsDia'][i]['url'] + '"> Minut '+ array['sessioX']['puntsDia'][i]['time'] + '</a>' +
+                '<a href="'+ array['sessioX']['puntsDia'][i]['url'] + '" target="_blank"> Minut '+ array['sessioX']['puntsDia'][i]['time'] + '</a>' +
               '</div>'+
             '</div>'+
           '</div>'
@@ -87,11 +102,11 @@
               '</button>'+
             '</h2>'+
             '<div id="collapseInt'+i+'" class="accordion-collapse collapse" aria-labelledby="headingInt'+i+'" data-bs-parent="#accordion_intervencions">'+
-              '<div class="accordion-body">'+
-                '<a href="'+ url + '"> Minut '+ url + '</a>' +
+                '<div class="accordion-body">'+
+                  '<a href="'+ url + '" target="_blank"> Minut '+ url + '</a>' +
+                '</div>'+
               '</div>'+
-            '</div>'+
-          '</div>'
+            '</div>'
           );
         }
 
