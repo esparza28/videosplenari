@@ -17,30 +17,17 @@
 	</head>
 	<body>
     <div class="container p-3">
-<!--       <div class="embed-responsive embed-responsive-16by9">
-        <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/ShDXPTN4jS8" allowfullscreen></iframe> 
-      </div> -->
-      <h2>Plenari</h2>
-<!--       <h3>Punts del dia</h3>-->
-      <div class="accordion" id="accordion_punts">
-        <div class="accordion-item">
-          <h2 class="accordion-header" id="headingPunts">
-            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="collapsePunts" aria-expanded="true" aria-controls="collapsePunts">
-              Punts del dia
-            </button>
-          </h2>
-          <div id="collapsePunts" class="accordion-collapse collapse" aria-labelledby="headingPunts" data-bs-parent="#accordion_punts">
-            <div class="accordion-body">
-              <p>caca</p>
-              <p>caca</p>
-              <p>asdasd</p>
-            </div>
-          </div>
-        </div>
 
-        <h3>Intervencions</h3>
-        <div class="accordion" id="accordion_intervencions"></div>
-      </div>
+      <div id="player"></div>
+      <a onclick="goToSecond(120)">LINK</a>
+
+      <h2>Plenari</h2>
+      <h3>Punts del dia</h3>
+      <div class="accordion" id="accordion_punts"></div>
+
+      <h3>Intervencions</h3>
+      <div class="accordion" id="accordion_intervencions"></div>
+      
   </div> 
 
 		<!-- Theme Custom -->
@@ -52,18 +39,13 @@
     <script>
       var wrapperPunts = $("#accordion_punts");
       var wrapperIntervencions = $("#accordion_intervencions");
-      var youtubeUrl;
+      var youtubeUrl= "";
       var array=[];
 
       $.getJSON('txt/plenari.json', function(json){
         array = json;
-
-        //https://www.youtube.com/watch?v=ShDXPTN4jS8
-        /*         let pipi = array['sessioX']['links'][0]['url'];
-        let caca = pipi.split('=')[1];
-        var youtube = 'https://www.youtube.com/embed/'+caca;
-        $('#youtubeFrame').attr('src', array['sessioX']['links'][0]['url']);
-        console.log(pipi) */
+        let url = array['sessioX']['puntsDia'][0]['url'];
+        youtubeUrl = url.split('v=').pop().split('&')[0];
 
         for (let i = 0; i < array['sessioX']['puntsDia'].length; i++) {
           //console.log(array['sessioX']['puntsDia'][i]);            
@@ -112,13 +94,52 @@
 
       }); 
 
-/*       $(document).ready(function(){
-        $('button').click(function(){
-          var url = $(this).attr('rel');
-          $('#youtubeIframe').attr('src', url),
-          $('#youtubeIframe').reload();
+      //////////////////////////////////////////////////////
+      // 2. This code loads the IFrame Player API code asynchronously.
+      var tag = document.createElement('script');
+
+      tag.src = "https://www.youtube.com/iframe_api";
+      var firstScriptTag = document.getElementsByTagName('script')[0];
+      firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+      // 3. This function creates an <iframe> (and YouTube player)
+      //    after the API code downloads.
+      var player;
+      function onYouTubeIframeAPIReady() {
+        player = new YT.Player('player', {
+          height: '360',
+          width: '640',
+          videoId: youtubeUrl,
+          events: {
+            'onReady': onPlayerReady,
+            'onStateChange': onPlayerStateChange
+          }
         });
-      }); */
+      }
+
+      // 4. The API will call this function when the video player is ready.
+      function onPlayerReady(event) {
+        event.target.playVideo();
+      }
+
+      // 5. The API calls this function when the player's state changes.
+      //    The function indicates that when playing a video (state=1),
+      //    the player should play for six seconds and then stop.
+      var done = false;
+      function onPlayerStateChange(event) {
+        if (event.data == YT.PlayerState.PLAYING && !done) {
+          setTimeout(stopVideo, 6000);
+          done = true;
+        }
+      }
+
+      function stopVideo() {
+        player.stopVideo();
+      }      
+
+      function goToSecond(sec) {        
+        player.seekTo(sec, true);
+      }
 
               
     </script>

@@ -20,41 +20,45 @@
     <link rel="stylesheet" href="css/custom.css">
 
 </head>
+
 <body>
-    <div class="container">
-        <h1 class="text-center p-2">Sessió parlamentaria</h1>
-        <form id="myForm" onsubmit='return get()'>
+    <div>
+        <h1 class="text-center p-3 colorMorat text-light m-auto">Sessió parlamentaria</h1>
+        <form id="myForm" class="p-5" onsubmit='return get()'>
             <div class="row col-sm" id="input_fields_wrap">
-                <div class="d-flex">
-                    <label class="form-group p-1" for="url">URL youtube: </label>
-                    <input class="form-group col col-md-6 m-1" type="url" accept="text/plain" name="url"
-                    class="form-control" id="url" placeholder="Ex. https://www.youtube.com/watch?v=ShDXPTN4jS8"
-                    required>
+                <div class="d-flex py-5 justify-content-center">
+                    <h4 class="form-group p-1" for="url">URL youtube: </h4>
+                    <input class="form-group col col-md-6 m-1 h-30" type="url" accept="text/plain" name="url"
+                        class="form-control" id="url" placeholder="Ex. https://www.youtube.com/watch?v=ShDXPTN4jS8"
+                        required>
                 </div>
-                <div>
-                    <label class="form-group col" for="url">Fitxer de la sessió: </label>
-                    <input class="form-group col m-1" type="file" name="file" class="form-control" id="file"
-                    accept=".txt, .csv" required disabled>
+                <div class="d-flex justify-content-center mb-5">
+                    <h4 class="form-group m-0 p-2" for="url">Fitxer de la sessió: </h4>
+                    <input class="form-group p-2" type="file" name="file"  id="file"
+                        accept=".txt, .csv" required disabled>
                 </div>
-                <label class="form-group col-md-6" for="punt">Punt del dia</label>
-                <label class="form-group col-md-6" for="time">Temps (hh:mm:ss)</label>
+
+                <h4 class="form-group col-md-6" for="punt">Punt del dia</h4>
+                <h4 class="form-group col-md-6" for="time">Temps (hh:mm:ss)</h4>
+                
                 <div class="form-group row" id="divPunts">
-                    <input class="form-group col m-1" type="text" name="punt" class="form-control" id="punt0"
-                    placeholder="Ex. Rebaixada de sous dels regidors." required>
-                    <input class="form-group col m-1" type="time" step="1" name="punt" class="form-control" id="time0"
-                    placeholder="Ex. 00:02:05" required>
-                    <button class="col-1 btn btn-outline-danger p-0 btn-sm" id="remove_field">
+                    <input class="form-group col m-1 h-30" type="text" name="punt" class="form-control" id="punt0"
+                        placeholder="Ex. Rebaixada de sous dels regidors." required>
+                    <input class="form-group col m-1 h-30" type="time" step="1" name="punt" class="form-control" id="time0"
+                        placeholder="Ex. 00:02:05" required>
+                    <button class="col-1 btn btn-outline-danger p-0 mt-1 btn-sm h-30" id="remove_field">
                         <i class="fas fa-minus-circle"></i>Eliminar
                     </button>
                 </div>
             </div>
             <div class="row justify-content-end">
-                <button class="col-1 btn btn-outline-success my-2" id="add_button"><i
+                <button class="col-1 btn btn-outline-success p-0 btn-sm h-30 m-4" id="add_button"><i
                         class="fas fa-plus-circle"></i>Afegir
                 </button>
             </div>
-            <div class="row">
-                <button class="btn btn-outline-primary btn-sm" type="submit">Registrar</button>
+
+            <div class="d-flex justify-content-center">
+                <button class="btn btn-outline-primary btn-lg" type="submit">Registrar</button>
             </div>
         </form>
     </div>
@@ -83,9 +87,9 @@
                 x++; //text box increment
                 $(wrapper).append(
                     '<div class="form-group row">' +
-                    '<input class="form-group col m-1" type="text" name="punt" class="form-control" id="punt' + (x - 1) + '" placeholder="Ex. Rebaixada de sous dels regidors." required> ' +
-                    '<input class="form-group col m-1" type="time" step="1" name="punt" class="form-control" id="time' + (x - 1) + '" placeholder="Ex. 00:02:05" required> ' +
-                    '<button class="col-1 btn btn-outline-danger my-2" id="remove_field"><i class="fas fa-minus-circle"></i>Eliminar</button></div>'
+                    '<input class="form-group col m-1" type="text" name="punt" id="punt' + (x - 1) + '" placeholder="Ex. Rebaixada de sous dels regidors." required> ' +
+                    '<input class="form-group col m-1" type="time" step="1" name="punt" id="time' + (x - 1) + '" placeholder="Ex. 00:02:05" required> ' +
+                    '<button class="col-1 btn btn-outline-danger p-0 mt-1 btn-sm h-30" id="remove_field"><i class="fas fa-minus-circle"></i>Eliminar</button></div>'
                 ); //add input box
             }
         });

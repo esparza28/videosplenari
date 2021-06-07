@@ -1,7 +1,16 @@
+a{
+    text-decoration: unset;
+    color: rgb(233, 77, 233) !important;
+}
+
 a:hover{
     font-weight: bold;
 }
 
 .colorMorat {
     background-color: #6b3b8c;
+}
+
+.h-30{
+    height: 30px;
 }
