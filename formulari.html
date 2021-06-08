@@ -81,7 +81,9 @@
         var wrapper = $("#input_fields_wrap"); //Fields wrapper
         var add_button = $("#add_button"); //Add button ID
         var plenari;
-        plenari = '{ "sessioX": {"data": "' + formatDate(new Date()) + '" , "links": '; //"puntsDia":  
+        plenari = '{ "sessioX": {"data": "' + formatDate(new Date()) + '" , ' +
+        '"url": "' + document.getElementById('url').value + '" ,' +
+        '"links": '; //"puntsDia":  
 
         var x = 1; //initlal text box count
         $(add_button).click(function (e) { //on add input button click
@@ -105,8 +107,14 @@
         $('#url').on('input', function () {
             if ($(this).val()) {
                 $('#file').prop('disabled', false);
+                plenari = '{ "sessioX": {"data": "' + formatDate(new Date()) + '" , ' +
+                '"url": "' + document.getElementById('url').value + '" ,' +
+                '"links": '
             } else {
                 $('#file').prop('disabled', true);
+                plenari = '{ "sessioX": {"data": "' + formatDate(new Date()) + '" , ' +
+                '"url": "" ,' +
+                '"links": '
             }
         })
 
@@ -140,7 +148,7 @@
                 for (let i = 0; i < lines.length - 1; i++) {
                     var url = {};
                     let time = json[i]['00:00:00'];
-                    url['url'] = urlWithSecs(document.getElementById('url').value, time);
+                    url['time'] = toSeconds(time);
 
                     var speak = 'silencio';
                     for (let j = 0; j < headers.length; j++) {
@@ -174,8 +182,8 @@
 
                 obj['punt'] = i;
                 obj['title'] = punt.value;
-                obj['time'] = time.value;
-                obj['url'] = urlWithSecs(document.getElementById('url').value, time.value);
+                obj['time'] = toSeconds(time.value);
+                //obj['url'] = urlWithSecs(document.getElementById('url').value, time.value);
 
                 punts.push(obj);
             }
@@ -200,10 +208,13 @@
                 "/" + date.getFullYear();
         }
 
-        function urlWithSecs(url, time) {
+        function toSeconds(time) {
+            console.log("caca");
+            
             var d = new Date("0001-01-01T" + time);
-            var seconds = d.getHours() * 120 + d.getMinutes() * 60 + d.getSeconds();
-            return url + "&t=" + seconds + "s";
+            let secs = d.getHours() * 3600 + d.getMinutes() * 60 + d.getSeconds();
+            console.log("time: ", d, "seconds: ", secs);
+            return secs;
         }
 
     </script>

@@ -16,7 +16,7 @@
 
 	</head>
 	<body>
-    <div class="container p-3">
+    <div>
       <div class="colorMorat d-flex justify-content-center">
 				<img  src="https://www.gandia.es/aytg/Web_php/imatges/icones/escudo_logo_ajuntament_gandia_valencia.png" alt="">
 				<h1 class="text-center p-1 text-light m-0 pt-3">Sessió parlamentaria</h1>                
@@ -28,14 +28,14 @@
           <!-- <a onclick="goToSecond(120)">LINK</a> -->
 				</div>				
 				<div class="col-md pt-2">		
-					<h3 class="colorMorat text-light p-2 rounded d-flex mt-3">Titol del Plenari</h3>
-          <div class="row d-flex m-0" id="div_punts"></div>
+					<h3 id="title_video" class="colorMorat text-light p-2 rounded d-flex mt-3">Titol del Plenari</h3>
+          <div class="m-0" id="div_punts"></div>
 				</div>
 			</div>
 
       <h3 class="colorMorat text-light p-1 d-flex justify-content-center">Intervencions al Plenari</h3>
-			<div class="p-1 d-flex col">					
-					<div class="row d-flex m-0" id="div_intervencions"></div>
+			<div class="p-1">					
+					<div class="m-0" id="div_intervencions"></div>
 			</div>
     </div> 
 
@@ -48,13 +48,15 @@
     <script>
       var wrapperPunts = $("#div_punts");
       var wrapperIntervencions = $("#div_intervencions");
+      var titleVideo = $("#title_video");
       var youtubeUrl= "";
       var array=[];
 
       $.getJSON('txt/plenari.json', function(json){
         array = json;
-        let url = array['sessioX']['puntsDia'][0]['url'];
-        youtubeUrl = url.split('v=').pop().split('&')[0];
+        let url = array['sessioX']['url'];
+        titleVideo.text('Sessió parlamentaria ' + array['sessioX']['data']);
+        youtubeUrl = url.split('v=')[1];
 
         for (let i = 0; i < array['sessioX']['puntsDia'].length; i++) {
           //console.log(array['sessioX']['puntsDia'][i]);            
@@ -64,19 +66,19 @@
           );
         }  
 
+      console.log(array['sessioX']['links'].length/5)
         for (let i = 0; i < array['sessioX']['links'].length; i++) {
           let speaker;
-          let url;
-
+          let time;
           if(array['sessioX']['links'][i]['speaker'] != "silencio"){
             speaker = array['sessioX']['links'][i]['speaker'];
-            url = array['sessioX']['links'][i]['url'];
+            time = array['sessioX']['links'][i]['time'];
           }else{
             continue;
           }
           
           $(wrapperIntervencions).append(
-            '<a class="my-1 pointer-event" id="linkSeek" data-seek="' + array['sessioX']['links'][i]['url'] + '">' + speaker + '</a>' +
+            '<a class=" mx-3" id="linkSeek" data-seek="' + array['sessioX']['links'][i]['time'] + '">' + speaker +' - '+ time + '</a>' +
 						'<hr>'
           );
         }
@@ -96,8 +98,8 @@
       var player;
       function onYouTubeIframeAPIReady() {
         player = new YT.Player('player', {
-          height: '360',
-          width: '640',
+          height: '450',
+          width: '100%',
           videoId: youtubeUrl,
           events: {
             'onReady': onPlayerReady,

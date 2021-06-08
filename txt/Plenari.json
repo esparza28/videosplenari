@@ -1,84 +1,691 @@
 {
     "sessioX": {
-        "data": "14/5/2021",
+        "data": "8/6/2021",
+        "url": "https://www.youtube.com/watch?v=yUrfMBELDi4",
         "links": [
             {
-                "url": "https://www.youtube.com/watch?v=x-mhgmHYrRo&t=6s",
-                "speaker": 1
-            },
-            {
-                "url": "https://www.youtube.com/watch?v=x-mhgmHYrRo&t=16s",
-                "speaker": "silencio"
-            },
-            {
-                "url": "https://www.youtube.com/watch?v=x-mhgmHYrRo&t=27s",
+                "time": 34,
                 "speaker": 15
             },
             {
-                "url": "https://www.youtube.com/watch?v=x-mhgmHYrRo&t=38s",
+                "time": 102,
                 "speaker": "silencio"
             },
             {
-                "url": "https://www.youtube.com/watch?v=x-mhgmHYrRo&t=44s",
+                "time": 193,
+                "speaker": 15
+            },
+            {
+                "time": 383,
+                "speaker": 15
+            },
+            {
+                "time": 386,
+                "speaker": 22
+            },
+            {
+                "time": 469,
+                "speaker": "silencio"
+            },
+            {
+                "time": 471,
+                "speaker": 15
+            },
+            {
+                "time": 477,
+                "speaker": 11
+            },
+            {
+                "time": 477,
+                "speaker": 11
+            },
+            {
+                "time": 595,
+                "speaker": "silencio"
+            },
+            {
+                "time": 596,
+                "speaker": 15
+            },
+            {
+                "time": 603,
+                "speaker": 12
+            },
+            {
+                "time": 603,
+                "speaker": 12
+            },
+            {
+                "time": 751,
+                "speaker": 12
+            },
+            {
+                "time": 751,
+                "speaker": 15
+            },
+            {
+                "time": 754,
+                "speaker": 15
+            },
+            {
+                "time": 761,
                 "speaker": 21
             },
             {
-                "url": "https://www.youtube.com/watch?v=x-mhgmHYrRo&t=58s",
+                "time": 1160,
                 "speaker": "silencio"
             },
             {
-                "url": "https://www.youtube.com/watch?v=x-mhgmHYrRo&t=62s",
+                "time": 1161,
+                "speaker": 21
+            },
+            {
+                "time": 1162,
+                "speaker": "silencio"
+            },
+            {
+                "time": 1315,
+                "speaker": 15
+            },
+            {
+                "time": 1328,
+                "speaker": "silencio"
+            },
+            {
+                "time": 1329,
+                "speaker": 19
+            },
+            {
+                "time": 1349,
+                "speaker": 15
+            },
+            {
+                "time": 1421,
+                "speaker": 19
+            },
+            {
+                "time": 1423,
+                "speaker": "silencio"
+            },
+            {
+                "time": 1423,
+                "speaker": 11
+            },
+            {
+                "time": 1451,
+                "speaker": 11
+            },
+            {
+                "time": 1451,
+                "speaker": 15
+            },
+            {
+                "time": 1455,
+                "speaker": 15
+            },
+            {
+                "time": 1460,
+                "speaker": 19
+            },
+            {
+                "time": 1486,
+                "speaker": "silencio"
+            },
+            {
+                "time": 1487,
+                "speaker": 11
+            },
+            {
+                "time": 1488,
+                "speaker": 11
+            },
+            {
+                "time": 1491,
+                "speaker": 11
+            },
+            {
+                "time": 1626,
+                "speaker": "silencio"
+            },
+            {
+                "time": 1628,
+                "speaker": 15
+            },
+            {
+                "time": 1631,
+                "speaker": 11
+            },
+            {
+                "time": 1633,
+                "speaker": 11
+            },
+            {
+                "time": 1637,
+                "speaker": "silencio"
+            },
+            {
+                "time": 1641,
+                "speaker": 18
+            },
+            {
+                "time": 1679,
+                "speaker": "silencio"
+            },
+            {
+                "time": 1679,
+                "speaker": 15
+            },
+            {
+                "time": 1685,
+                "speaker": 15
+            },
+            {
+                "time": 1699,
+                "speaker": 19
+            },
+            {
+                "time": 1819,
+                "speaker": 15
+            },
+            {
+                "time": 1820,
+                "speaker": 15
+            },
+            {
+                "time": 1826,
+                "speaker": 11
+            },
+            {
+                "time": 1827,
+                "speaker": 11
+            },
+            {
+                "time": 2123,
+                "speaker": 11
+            },
+            {
+                "time": 2127,
+                "speaker": 11
+            },
+            {
+                "time": 2128,
+                "speaker": "silencio"
+            },
+            {
+                "time": 2129,
+                "speaker": 22
+            },
+            {
+                "time": 2196,
+                "speaker": "silencio"
+            },
+            {
+                "time": 2198,
+                "speaker": 15
+            },
+            {
+                "time": 2200,
+                "speaker": "silencio"
+            },
+            {
+                "time": 2207,
+                "speaker": 15
+            },
+            {
+                "time": 2213,
+                "speaker": "silencio"
+            },
+            {
+                "time": 2213,
+                "speaker": 23
+            },
+            {
+                "time": 2393,
+                "speaker": "silencio"
+            },
+            {
+                "time": 2395,
+                "speaker": 15
+            },
+            {
+                "time": 2398,
+                "speaker": "silencio"
+            },
+            {
+                "time": 2675,
+                "speaker": "silencio"
+            },
+            {
+                "time": 2681,
+                "speaker": 11
+            },
+            {
+                "time": 2713,
+                "speaker": "silencio"
+            },
+            {
+                "time": 2715,
+                "speaker": 15
+            },
+            {
+                "time": 2721,
+                "speaker": 15
+            },
+            {
+                "time": 2721,
+                "speaker": 22
+            },
+            {
+                "time": 2767,
+                "speaker": "silencio"
+            },
+            {
+                "time": 2767,
+                "speaker": 15
+            },
+            {
+                "time": 2777,
+                "speaker": "silencio"
+            },
+            {
+                "time": 2779,
+                "speaker": 19
+            },
+            {
+                "time": 3237,
+                "speaker": "silencio"
+            },
+            {
+                "time": 3243,
+                "speaker": 15
+            },
+            {
+                "time": 3256,
+                "speaker": 15
+            },
+            {
+                "time": 3257,
+                "speaker": 22
+            },
+            {
+                "time": 3330,
+                "speaker": "silencio"
+            },
+            {
+                "time": 3331,
+                "speaker": 15
+            },
+            {
+                "time": 3333,
+                "speaker": 1
+            },
+            {
+                "time": 3336,
+                "speaker": 1
+            },
+            {
+                "time": 3572,
+                "speaker": "silencio"
+            },
+            {
+                "time": 3576,
+                "speaker": 15
+            },
+            {
+                "time": 3576,
+                "speaker": 15
+            },
+            {
+                "time": 3579,
+                "speaker": 18
+            },
+            {
+                "time": 3990,
+                "speaker": 15
+            },
+            {
+                "time": 3999,
+                "speaker": 18
+            },
+            {
+                "time": 4029,
+                "speaker": "silencio"
+            },
+            {
+                "time": 4029,
+                "speaker": 15
+            },
+            {
+                "time": 4035,
+                "speaker": "silencio"
+            },
+            {
+                "time": 4038,
+                "speaker": 6
+            },
+            {
+                "time": 4404,
+                "speaker": 6
+            },
+            {
+                "time": 4404,
+                "speaker": 15
+            },
+            {
+                "time": 4410,
+                "speaker": 15
+            },
+            {
+                "time": 4457,
+                "speaker": 15
+            },
+            {
+                "time": 4465,
+                "speaker": 15
+            },
+            {
+                "time": 4466,
+                "speaker": 19
+            },
+            {
+                "time": 4520,
+                "speaker": "silencio"
+            },
+            {
+                "time": 4524,
+                "speaker": 15
+            },
+            {
+                "time": 4528,
+                "speaker": 15
+            },
+            {
+                "time": 4528,
+                "speaker": 22
+            },
+            {
+                "time": 4600,
+                "speaker": "silencio"
+            },
+            {
+                "time": 4602,
+                "speaker": 15
+            },
+            {
+                "time": 4609,
+                "speaker": "silencio"
+            },
+            {
+                "time": 4611,
                 "speaker": 3
             },
             {
-                "url": "https://www.youtube.com/watch?v=x-mhgmHYrRo&t=70s",
+                "time": 4999,
+                "speaker": 3
+            },
+            {
+                "time": 5002,
+                "speaker": 3
+            },
+            {
+                "time": 5008,
+                "speaker": 3
+            },
+            {
+                "time": 5008,
+                "speaker": 15
+            },
+            {
+                "time": 5009,
                 "speaker": "silencio"
             },
             {
-                "url": "https://www.youtube.com/watch?v=x-mhgmHYrRo&t=72s",
-                "speaker": 17
+                "time": 5009,
+                "speaker": 21
             },
             {
-                "url": "https://www.youtube.com/watch?v=x-mhgmHYrRo&t=84s",
+                "time": 5445,
                 "speaker": "silencio"
             },
             {
-                "url": "https://www.youtube.com/watch?v=x-mhgmHYrRo&t=86s",
+                "time": 5446,
+                "speaker": 15
+            },
+            {
+                "time": 5451,
+                "speaker": "silencio"
+            },
+            {
+                "time": 5451,
+                "speaker": 14
+            },
+            {
+                "time": 5946,
+                "speaker": "silencio"
+            },
+            {
+                "time": 5949,
+                "speaker": 15
+            },
+            {
+                "time": 5965,
+                "speaker": "silencio"
+            },
+            {
+                "time": 5967,
+                "speaker": 19
+            },
+            {
+                "time": 5982,
+                "speaker": "silencio"
+            },
+            {
+                "time": 5987,
+                "speaker": 15
+            },
+            {
+                "time": 6201,
+                "speaker": 15
+            },
+            {
+                "time": 6210,
+                "speaker": 19
+            },
+            {
+                "time": 6226,
+                "speaker": "silencio"
+            },
+            {
+                "time": 6227,
+                "speaker": 15
+            },
+            {
+                "time": 6242,
+                "speaker": "silencio"
+            },
+            {
+                "time": 6950,
+                "speaker": 15
+            },
+            {
+                "time": 6953,
+                "speaker": 15
+            },
+            {
+                "time": 6971,
+                "speaker": 15
+            },
+            {
+                "time": 7111,
+                "speaker": 15
+            },
+            {
+                "time": 7114,
+                "speaker": 15
+            },
+            {
+                "time": 7194,
+                "speaker": "silencio"
+            },
+            {
+                "time": 7195,
+                "speaker": 19
+            },
+            {
+                "time": 7198,
+                "speaker": "silencio"
+            },
+            {
+                "time": 7218,
+                "speaker": 15
+            },
+            {
+                "time": 7220,
+                "speaker": 15
+            },
+            {
+                "time": 7221,
+                "speaker": 22
+            },
+            {
+                "time": 7233,
+                "speaker": "silencio"
+            },
+            {
+                "time": 7235,
+                "speaker": 3
+            },
+            {
+                "time": 7262,
+                "speaker": "silencio"
+            },
+            {
+                "time": 7263,
+                "speaker": 15
+            },
+            {
+                "time": 7264,
+                "speaker": 15
+            },
+            {
+                "time": 7266,
+                "speaker": 21
+            },
+            {
+                "time": 7313,
+                "speaker": "silencio"
+            },
+            {
+                "time": 7315,
+                "speaker": 15
+            },
+            {
+                "time": 7319,
                 "speaker": 10
             },
             {
-                "url": "https://www.youtube.com/watch?v=x-mhgmHYrRo&t=93s",
+                "time": 7330,
+                "speaker": 15
+            },
+            {
+                "time": 7332,
                 "speaker": "silencio"
             },
             {
-                "url": "https://www.youtube.com/watch?v=x-mhgmHYrRo&t=98s",
+                "time": 7333,
+                "speaker": 10
+            },
+            {
+                "time": 7367,
+                "speaker": "silencio"
+            },
+            {
+                "time": 7368,
+                "speaker": 21
+            },
+            {
+                "time": 7448,
+                "speaker": "silencio"
+            },
+            {
+                "time": 7449,
+                "speaker": 15
+            },
+            {
+                "time": 7542,
+                "speaker": 15
+            },
+            {
+                "time": 7544,
+                "speaker": 21
+            },
+            {
+                "time": 7550,
+                "speaker": 15
+            },
+            {
+                "time": 7568,
+                "speaker": 21
+            },
+            {
+                "time": 7706,
+                "speaker": "silencio"
+            },
+            {
+                "time": 7707,
+                "speaker": 15
+            },
+            {
+                "time": 7858,
+                "speaker": "silencio"
+            },
+            {
+                "time": 7858,
+                "speaker": 21
+            },
+            {
+                "time": 7880,
+                "speaker": "silencio"
+            },
+            {
+                "time": 7880,
+                "speaker": 15
+            },
+            {
+                "time": 7889,
+                "speaker": "silencio"
+            },
+            {
+                "time": 7894,
+                "speaker": 15
+            },
+            {
+                "time": 7916,
+                "speaker": "silencio"
+            },
+            {
+                "time": 7993,
+                "speaker": 15
+            },
+            {
+                "time": 7995,
+                "speaker": "silencio"
+            },
+            {
+                "time": 8032,
                 "speaker": "silencio"
             }
         ],
         "puntsDia": [
             {
                 "punt": 0,
-                "title": "qwe",
-                "time": "00:00:58",
-                "url": "https://www.youtube.com/watch?v=x-mhgmHYrRo&t=2506s"
+                "title": "Rebaixada de sous dels regidors",
+                "time": 4819
             },
             {
                 "punt": 1,
-                "title": "xaxa",
-                "time": "00:06:50",
-                "url": "https://www.youtube.com/watch?v=x-mhgmHYrRo&t=2690s"
-            },
-            {
-                "punt": 2,
-                "title": "caca",
-                "time": "00:08:50",
-                "url": "https://www.youtube.com/watch?v=x-mhgmHYrRo&t=2690s"
-            },
-            {
-                "punt": 3,
-                "title": "zaza",
-                "time": "00:10:50",
-                "url": "https://www.youtube.com/watch?v=x-mhgmHYrRo&t=2690s"
+                "title": "Guillotina en la plaça major",
+                "time": 5886
             }
         ]
     }
