@@ -17,15 +17,49 @@
 	</head>
 	<body>
     <div class="container p-3">
+      <div class="colorMorat d-flex justify-content-center">
+				<img  src="https://www.gandia.es/aytg/Web_php/imatges/icones/escudo_logo_ajuntament_gandia_valencia.png" alt="">
+				<h1 class="text-center p-1 text-light m-0 pt-3">Sessió parlamentaria</h1>                
+			</div>
 
-      <div id="player"></div>
-      <a onclick="goToSecond(120)">LINK</a>
+      <div class="row">
+				<div class="col-md p-4">					
+					<div id="player"></div>
+          <a onclick="goToSecond(120)">LINK</a>
+				</div>				
+				<div class="col-md pt-2">		
+					<h3 class="colorMorat text-light p-2 rounded d-flex mt-3">Titol del Plenari</h3>
+					<div class="row d-flex m-auto">
+
+					</div>	
+				</div>
+			</div>
+
+      <h3 class="colorMorat text-light p-1 d-flex justify-content-center">Intervencions al Plenari</h3>
+			<div class="p-1 d-flex col justify-content-center">					
+				<div class="p-1">
+					<div class="row d-flex m-auto">
+						<a class="pointer-event my-1" href="#" >Intervenció 1</a>
+						<hr>
+						<a class="pointer-event my-1" href="#" >Intervenció 2</a>
+						<hr>
+						<a class="pointer-event my-1" href="#" >Intervenció 3</a>
+						<hr>
+						<a class="pointer-event my-1" href="#" >Intervenció 4</a>
+						<hr>
+						<a class="pointer-event my-1" href="#" >Intervenció 5</a>
+						<hr>
+						<a class="pointer-event my-1" href="#" >Intervenció 6</a>
+						<hr>
+					</div>	
+				</div>						
+			</div>
 
       <h2>Plenari</h2>
-      <h3>Punts del dia</h3>
+      <h3 class="colorMorat text-light p-2 rounded d-flex mt-3">Titol del Plenari</h3>
       <div class="accordion" id="accordion_punts"></div>
 
-      <h3>Intervencions</h3>
+      <h3 class="colorMorat text-light p-1 d-flex justify-content-center">Intervencions al Plenari</h3>
       <div class="accordion" id="accordion_intervencions"></div>
       
   </div> 
