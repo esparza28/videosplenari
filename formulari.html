@@ -48,7 +48,7 @@
                     <input class="form-group col m-1 h-30" type="text" name="punt" class="form-control" id="punt0"
                         placeholder="Ex. Rebaixada de sous dels regidors." required>
                     <input class="form-group col m-1 h-30" type="time" step="1" name="punt" class="form-control" id="time0"
-                        placeholder="Ex. 00:02:05" required>
+                        value="00:00:00" required>
                     <button class="col-1 btn btn-outline-danger p-0 mt-1 btn-sm h-30" id="remove_field">
                         <i class="fas fa-minus-circle"></i>Eliminar
                     </button>
@@ -209,11 +209,8 @@
         }
 
         function toSeconds(time) {
-            console.log("caca");
-            
             var d = new Date("0001-01-01T" + time);
             let secs = d.getHours() * 3600 + d.getMinutes() * 60 + d.getSeconds();
-            console.log("time: ", d, "seconds: ", secs);
             return secs;
         }
 

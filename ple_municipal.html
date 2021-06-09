@@ -61,7 +61,7 @@
         for (let i = 0; i < array['sessioX']['puntsDia'].length; i++) {
           //console.log(array['sessioX']['puntsDia'][i]);            
           $(wrapperPunts).append(
-            '<a class="my-1 pointer-event" id="linkSeek" data-seek="' + array['sessioX']['puntsDia'][i]['time'] + '">' + array['sessioX']['puntsDia'][i]['title'] + '</a>' +
+            '<a class="my-1 pointer-event" id="linkSeek" data-seek="' + array['sessioX']['puntsDia'][i]['time'] + '">Punt ' + puntToString(array['sessioX']['puntsDia'][i]['punt']) +': ' + array['sessioX']['puntsDia'][i]['title'] + '</a>' +
 						'<hr>'
           );
         }  
@@ -78,7 +78,7 @@
           }
           
           $(wrapperIntervencions).append(
-            '<a class=" mx-3" id="linkSeek" data-seek="' + array['sessioX']['links'][i]['time'] + '">' + speaker +' - '+ time + '</a>' +
+            '<a class=" mx-3" id="linkSeek" data-seek="' + array['sessioX']['links'][i]['time'] + '">Intervencio de ' + speaker +' - '+ secondsToString(time) + '</a>' +
 						'<hr>'
           );
         }
@@ -88,7 +88,6 @@
       //////////////////////////////////////////////////////
       // 2. This code loads the IFrame Player API code asynchronously.
       var tag = document.createElement('script');
-
       tag.src = "https://www.youtube.com/iframe_api";
       var firstScriptTag = document.getElementsByTagName('script')[0];
       firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
@@ -134,6 +133,19 @@
         })
       })
 
+      function secondsToString(seconds) {
+        var hour = Math.floor(seconds / 3600);
+        hour = (hour < 10)? '0' + hour : hour;
+        var minute = Math.floor((seconds / 60) % 60);
+        minute = (minute < 10)? '0' + minute : minute;
+        var second = seconds % 60;
+        second = (second < 10)? '0' + second : second;
+        return hour + ':' + minute + ':' + second;
+      }
+
+      function puntToString(punt){
+        return punt + 1;
+      }
               
     </script>
 

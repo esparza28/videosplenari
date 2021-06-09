@@ -684,8 +684,18 @@
             },
             {
                 "punt": 1,
-                "title": "Guillotina en la plaça major",
+                "title": "Reforma del castell de Bairén",
                 "time": 5886
+            },
+            {
+                "punt": 2,
+                "title": "Fira i festes de Gandia",
+                "time": 5986
+            },
+            {
+                "punt": 3,
+                "title": "Wifi pública",
+                "time": 5999
             }
         ]
     }
