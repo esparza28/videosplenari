@@ -1,7 +1,11 @@
+* {
+    list-style-type: none;
+}
+
 a{
     text-decoration: unset;
     color: rgb(44, 41, 44);
-    cursor: pointer;
+    cursor: pointer;       
 }
 
 a:hover{
@@ -16,3 +20,43 @@ a:hover{
 .h-30{
     height: 30px;
 }
+
+/* Estilos Lista desplegable */
+
+.accordion-item > h2 > button{
+    line-height: 30px;
+    width: 100%;
+    text-align: left;   
+    background-color: #815c99;
+    border: 1px solid gray;
+    border-radius: 3px;
+    margin: 0px;
+    color: white;
+    padding: 5px;
+    font-size: 20px;
+}
+
+ul li{
+    margin-top: 0px;
+    width: 100%;
+    padding: 5px;    
+    margin-bottom: 5px;
+    margin-left: 10px;
+}
+
+.accordion-body > ul > li:hover {
+    background-color: rgb(219, 219, 219);
+    color: rgb(44, 41, 44);
+    cursor: pointer;  
+}
+
+
+
+
+
+
+
+
+
+
+
