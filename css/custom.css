@@ -1,10 +1,12 @@
 a{
     text-decoration: unset;
     color: rgb(44, 41, 44);
+    cursor: pointer;
 }
 
 a:hover{
     font-weight: bold;
+    color: rgb(44, 41, 44);
 }
 
 .colorMorat {
