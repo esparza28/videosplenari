@@ -21,8 +21,8 @@ a{
     height: 30px;
 }
 
-#footer{
-    
+footer{
+    position: absolute;
     bottom: 0;
     margin-bottom: 40px;    
     margin-top: 20px;
@@ -52,6 +52,8 @@ a{
     font-size: 20px;
 }
 
+
+
 #pleLista ul li{   
     width: 90%;     
     margin-bottom: 5px;
@@ -63,3 +65,19 @@ a{
     color: rgb(44, 41, 44);
     cursor: pointer;  
 }
+
+/* Estilos Pag principal */
+
+#texteIni{
+    background-color: rgb(230, 230, 230);
+    border-radius: 5px;
+    width: 30%;
+    font-size: 15px;
+    padding: 10px;
+    margin: 15px;
+    margin-top: 5px;
+}
+
+/* #pleLista{   
+    height: 100px;
+} */
