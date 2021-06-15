@@ -21,8 +21,8 @@ a{
     height: 30px;
 }
 
-footer{
-    position:absolute;
+#footer{
+    
     bottom: 0;
     margin-bottom: 40px;    
     margin-top: 20px;
@@ -30,8 +30,7 @@ footer{
     text-align: center;
 }
 
-nav{
-    clear: inline-end;
+#nav > ul{    
     height: 40px;
     width: 100%;
     align-content: center;
