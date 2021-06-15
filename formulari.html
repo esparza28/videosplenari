@@ -7,7 +7,7 @@
     <title>Formulari Ple Municial Gandia</title>
     <meta name="keywords" content="" />
     <meta name="description" content="">
-    <meta name="author" content="caca.net">
+    <meta name="author" content="k2">
     <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1.0, shrink-to-fit=no">
     <link rel="shortcut icon" href="" type="image/x-icon" />
 
@@ -80,10 +80,14 @@
         var max_fields = 10; //maximum input boxes allowed
         var wrapper = $("#input_fields_wrap"); //Fields wrapper
         var add_button = $("#add_button"); //Add button ID
-        var plenari;
-        plenari = '{ "sessioX": {"data": "' + formatDate(new Date()) + '" , ' +
-        '"url": "' + document.getElementById('url').value + '" ,' +
-        '"links": '; //"puntsDia":  
+
+        var sessio = ',"sessio' + formatDate(new Date()) + '": {"data": "' + formatDate(new Date()) + '" , '; 
+
+        $.getJSON('txt/plenari.json', function(json){
+            let array = json;
+            plenari = JSON.stringify(array).slice(0, -1);
+            console.log(plenari);
+        });
 
         var x = 1; //initlal text box count
         $(add_button).click(function (e) { //on add input button click
@@ -93,7 +97,7 @@
                 $(wrapper).append(
                     '<div class="form-group row">' +
                     '<input class="form-group col m-1" type="text" name="punt" id="punt' + (x - 1) + '" placeholder="Ex. Rebaixada de sous dels regidors." required> ' +
-                    '<input class="form-group col m-1" type="time" step="1" name="punt" id="time' + (x - 1) + '" placeholder="Ex. 00:02:05" required> ' +
+                    '<input class="form-group col m-1" type="time" step="1" name="punt" id="time' + (x - 1) + '" value="00:00:00" required> ' +
                     '<button class="col-1 btn btn-outline-danger p-0 mt-1 btn-sm h-30" id="remove_field"><i class="fas fa-minus-circle"></i>Eliminar</button></div>'
                 ); //add input box
             }
@@ -107,12 +111,12 @@
         $('#url').on('input', function () {
             if ($(this).val()) {
                 $('#file').prop('disabled', false);
-                plenari = '{ "sessioX": {"data": "' + formatDate(new Date()) + '" , ' +
+                plenari +=  sessio +
                 '"url": "' + document.getElementById('url').value + '" ,' +
                 '"links": '
             } else {
                 $('#file').prop('disabled', true);
-                plenari = '{ "sessioX": {"data": "' + formatDate(new Date()) + '" , ' +
+                plenari = sessio +
                 '"url": "" ,' +
                 '"links": '
             }
@@ -164,6 +168,7 @@
                 ob['links'] = frames;
                 plenari += JSON.stringify(ob['links']);
                 plenari += ', ';
+                console.log(plenari);
             }            
         });
 
