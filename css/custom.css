@@ -10,7 +10,8 @@
 a{
     text-decoration: unset;
     color: rgb(44, 41, 44);
-    cursor: pointer;          
+    cursor: pointer; 
+    width: 100%;         
 }
 
 .colorMorat {
@@ -30,12 +31,6 @@ footer{
     text-align: center;
 }
 
-#nav > ul{    
-    height: 40px;
-    width: 100%;
-    align-content: center;
-    line-height: 40px;
-}
 
 /* Estilos Lista desplegable */
 
@@ -52,12 +47,10 @@ footer{
     font-size: 20px;
 }
 
-
-
 #pleLista ul li{   
     width: 90%;     
     margin-bottom: 5px;
-    margin-left: 10px;
+    margin-left: 10px;    
 }
 
 #pleLista > ul > li:hover {
@@ -69,7 +62,7 @@ footer{
 /* Estilos Pag principal */
 
 #texteIni{
-    background-color: rgb(230, 230, 230);
+    background-color: rgb(235, 235, 235);
     border-radius: 5px;
     width: 30%;
     font-size: 15px;
@@ -78,6 +71,17 @@ footer{
     margin-top: 5px;
 }
 
-/* #pleLista{   
-    height: 100px;
-} */
+
+nav > ul > li { 
+    background-color: aqua;   
+    line-height: 40px;
+    width: 50%;
+    align-content: center;
+    line-height: 40px;
+    justify-content: center;
+    border-radius: 5px;    
+}
+
+nav > ul > li:hover{ 
+    opacity: 80%;
+}
