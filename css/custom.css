@@ -1,5 +1,5 @@
 * {
-    list-style-type: none;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
 .logo{
@@ -13,17 +13,19 @@ a{
     cursor: pointer;       
 }
 
-a:hover{
-    font-weight: bold;
-    color: rgb(44, 41, 44);
-}
-
 .colorMorat {
     background-color: #6b3b8c;
 }
 
 .h-30{
     height: 30px;
+}
+
+footer{
+    position:absolute;
+    bottom: 0;
+    margin-bottom: 40px;    
+    margin-top: 20px;
 }
 
 /* Estilos Lista desplegable */
@@ -41,19 +43,21 @@ a:hover{
     font-size: 20px;
 }
 
-ul li{
-    margin-top: 0px;
-    width: 100%;
-    padding: 5px;    
+ul li{   
+    width: 90%;     
     margin-bottom: 5px;
     margin-left: 10px;
 }
 
-.accordion-body > ul > li:hover {
+ul > li:hover {
     background-color: rgb(219, 219, 219);
     color: rgb(44, 41, 44);
     cursor: pointer;  
 }
+
+
+
+
 
 
 
