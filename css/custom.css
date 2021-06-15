@@ -2,6 +2,11 @@
     list-style-type: none;
 }
 
+.logo{
+    width: 100px;
+    height: 100px;
+}
+
 a{
     text-decoration: unset;
     color: rgb(44, 41, 44);
