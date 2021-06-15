@@ -1,0 +1,56 @@
+{
+    "sessio8/6/2021": {
+        "data": "8/6/2021",
+        "url": "https://www.youtube.com/watch?v=yUrfMBELDi4",
+        "links": [
+            {
+                "time": 34,
+                "speaker": 15
+            },
+            {
+                "time": 102,
+                "speaker": "silencio"
+            }
+            
+        ],
+        "puntsDia": [
+            {
+                "punt": 0,
+                "title": "Rebaixada de sous dels regidors",
+                "time": 4819
+            },
+            {
+                "punt": 1,
+                "title": "Reforma del castell de Bairén",
+                "time": 5886
+            }
+        ]
+    }
+    ,"sessio10/6/2021": {
+        "data": "10/6/2021",
+        "url": "https://www.youtube.com/watch?v=yUrfMBELDi4",
+        "links": [
+            {
+                "time": 34,
+                "speaker": 15
+            },
+            {
+                "time": 102,
+                "speaker": "silencio"
+            }
+            
+        ],
+        "puntsDia": [
+            {
+                "punt": 0,
+                "title": "Rebaixada de sous dels regidors",
+                "time": 4819
+            },
+            {
+                "punt": 1,
+                "title": "Reforma del castell de Bairén",
+                "time": 5886
+            }
+        ]
+    }
+}

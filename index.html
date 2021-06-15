@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Formulari Ple Municial Gandia</title>
+    <meta name="keywords" content="" />
+    <meta name="description" content="">
+    <meta name="author" content="k2">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1.0, shrink-to-fit=no">
+    <link rel="shortcut icon" href="" type="image/x-icon" />
+
+    <link id="googleFonts" href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500,600,700&display=swap"
+        rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+        integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/custom.css">
+
+</head>
+
+<body>
+    <div class="container mt-3">
+        <div id="div_links">
+        </div>
+    </div>
+
+    <!-- Theme Custom -->
+    <script type="text/javascript" src="js/custom.js"></script>
+    <script type="text/javascript" src="js/filesaver.js"></script>
+
+    <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf"
+        crossorigin="anonymous"></script>
+
+    <script>
+        var wrapperLinks = $('#div_links');
+
+        $.getJSON('txt/plenari.json', function(json){
+            array = json;
+            let keys = Object.keys(json);
+            
+            for (let i = 0; i < keys.length; i++) {
+                key = keys[i]
+                $(wrapperLinks).append(
+                    '<a class="my-1 pointer-event" href="ple_municipal.html?'+ key +'">Sessió parlamentaria del ' + array[key]['data'] +'</a>' +
+                                '<hr>'
+                );
+            }  
+
+        }); 
+
+    </script>
+</body>
+
+</html>
