@@ -30,6 +30,14 @@ footer{
     text-align: center;
 }
 
+nav{
+    clear: inline-end;
+    height: 40px;
+    width: 100%;
+    align-content: center;
+    line-height: 40px;
+}
+
 /* Estilos Lista desplegable */
 
 .accordion-item > h2 > button{
@@ -45,29 +53,14 @@ footer{
     font-size: 20px;
 }
 
-ul li{   
+#pleLista ul li{   
     width: 90%;     
     margin-bottom: 5px;
     margin-left: 10px;
 }
 
-ul > li:hover {
+#pleLista > ul > li:hover {
     background-color: rgb(219, 219, 219);
     color: rgb(44, 41, 44);
     cursor: pointer;  
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
