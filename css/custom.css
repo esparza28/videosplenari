@@ -10,7 +10,7 @@
 a{
     text-decoration: unset;
     color: rgb(44, 41, 44);
-    cursor: pointer;       
+    cursor: pointer;          
 }
 
 .colorMorat {
@@ -26,6 +26,8 @@ footer{
     bottom: 0;
     margin-bottom: 40px;    
     margin-top: 20px;
+    justify-content: center;
+    text-align: center;
 }
 
 /* Estilos Lista desplegable */
