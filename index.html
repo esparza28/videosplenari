@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Formulari Ple Municial Gandia</title>
+    <title>Ple Municial Gandia</title>
     <meta name="keywords" content="" />
     <meta name="description" content="">
     <meta name="author" content="k2">
@@ -22,8 +22,58 @@
 </head>
 
 <body>
-    <div class="container mt-3">
-        <div id="div_links">
+    <div>
+        <div class="colorMorat d-flex justify-content-center">
+            <div class=" d-flex align-items-center">
+                <img class="logo" style="opacity: 90%;" src="https://www.gandia.es/aytg/Web_php/imatges/icones/escudo_logo_ajuntament_gandia_valencia.png" alt="">
+            </div>
+            <h1 class="text-center p-1 text-light m-0 py-5"><span style="opacity: 60%;">Sessions Plenaries </span>| Ajuntament de Gandia</h1>                
+        </div>
+        <nav class="w-75 m-auto mt-4 mb-4">
+            <ul class="list-unstyled d-flex text-center justify-content-between">
+                <li class="mx-1 p-1 colorMorat">
+                    <a class="text-light" href="">Ajuntament</a>
+                </li>
+                <li class="mx-1 p-1 colorMorat">
+                    <a class="text-light" href="">Corporació Municipal</a>
+                </li>
+                <li class="mx-1 p-1 colorMorat">
+                    <a class="text-light" href="">Órgans de Govern</a>
+                </li>
+            </ul>
+        </nav>
+        <div class="d-flex justify-content-center align-items-center mb-2">
+            <div id="texteIni" class="text-left">
+                <h4>Com asistir</h4>
+                <p> Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto. Lorem Ipsum ha sido el texto de relleno estándar de las industrias desde el año 1500, cuando un impresor (N. del T. persona que se dedica a la imprenta) desconocido usó.
+                </p>
+
+            </div>
+
+            <div id="texteIni" class="text-left">
+                <h4>Reglament</h4>
+                <p> Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto. Lorem Ipsum ha sido el texto de relleno estándar de las industrias desde el año 1500, cuando un impresor (N. del T. persona que se dedica a la imprenta) desconocido usó.
+                </p>
+            </div>                
+        </div>
+
+        <div class="accordion-item w-75 justify-content-center m-auto">
+            <div style="height: 450px;" class="accordion overflow-scroll" id="accordionExample">
+                <div class="accordion-item">
+                  <h2 class="accordion-header" id="headingOne">
+                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                      2021
+                    </button>
+                  </h2>
+                  <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                    <div class="accordion-body">
+                        <div class="pleLista" >
+                            <ul id="ul_links" class="m-0 p-0">
+                            </ul>
+                        </div>	
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 
@@ -38,7 +88,7 @@
         crossorigin="anonymous"></script>
 
     <script>
-        var wrapperLinks = $('#div_links');
+        var wrapperLinks = $('#ul_links');
 
         $.getJSON('txt/plenari.json', function(json){
             array = json;
@@ -47,8 +97,7 @@
             for (let i = 0; i < keys.length; i++) {
                 key = keys[i]
                 $(wrapperLinks).append(
-                    '<a class="my-1 pointer-event" href="ple_municipal.html?'+ key +'">Sessió parlamentaria del ' + array[key]['data'] +'</a>' +
-                                '<hr>'
+                    '<a class="my-1 pointer-event" href="ple_municipal.html?'+ key +'">Sessió parlamentaria del ' + array[key]['data'] +'</a> <hr>'
                 );
             }  
 
