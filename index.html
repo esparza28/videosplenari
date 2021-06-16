@@ -52,7 +52,8 @@
 
             <div id="texteIni" class="text-left">
                 <h4>Reglament</h4>
-                <p>La Llei 5/2010 de 28 de maig de la Generalitat estableix l'aplicació al municipi de Gandia del Règim d'Organització dels Municipis de Gran Població, <a class="text-primary" href="https://www.boe.es/buscar/act.php?id=BOE-A-1985-5392" target="_blank">Bases del Règim Local (LRBRL).</a>
+                <p>La Llei 5/2010 de 28 de maig de la Generalitat estableix l'aplicació al municipi de Gandia del Règim d'Organització dels Municipis de Gran Població, 
+                    <a class="text-primary" href="https://www.boe.es/buscar/act.php?id=BOE-A-1985-5392" target="_blank">Bases del Règim Local (LRBRL).</a>
                 </p>
             </div>                
         </div>
@@ -65,7 +66,7 @@
                       2021
                     </button>
                   </h2>
-                  <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                  <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
                     <div class="accordion-body">
                         <div class="pleLista" >
                             <ul id="ul_links" class="m-0 p-0">
@@ -76,16 +77,22 @@
             </div>
         </div>
     </div>
+    <footer class="w-100 mx-auto d-flex justify-content-center mt-5">			
+        <a target="_blank" href="https://www.gandia.es/aytg/Web_php/index.php?contenido=subapartados_woden&id_boto=71&contenido=subapartados_woden&id_boto=71">
+            <script type="text/javascript">
+                copyright=new Date();					
+                update=copyright.getFullYear();					
+                document.write("© 2021 - " + update + " " + "Ajuntament de Gandia");				
+            </script>
+        </a>
+    </footer>
 
     <!-- Theme Custom -->
-    <script type="text/javascript" src="js/custom.js"></script>
     <script type="text/javascript" src="js/filesaver.js"></script>
 
     <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>-->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf"
-        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
 
     <script>
         var wrapperLinks = $('#ul_links');
@@ -100,7 +107,6 @@
                     '<a class="my-1 pointer-event" href="ple_municipal.html?'+ key +'">Sessió parlamentaria del ' + array[key]['data'] +'</a> <hr>'
                 );
             }  
-
         }); 
 
     </script>

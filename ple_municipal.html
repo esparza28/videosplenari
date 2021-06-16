@@ -37,16 +37,15 @@
         </div>
       </div> 
     </div>
-<!--       <div class="row">
-				<div class="col-md p-4 w-75">					
-					<div id="player"></div>
-				</div>				
-				<div class="col-md pt-2">		
-					<h3 class="colorMorat text-light p-2 rounded d-flex mt-3">Punts de la sessió</h3>
-          <div class="m-0" id="div_punts"></div>
-				</div>
-			</div> -->
-    
+    <footer class="w-100 mx-auto d-flex justify-content-center mt-5">			
+      <a target="_blank" href="https://www.gandia.es/aytg/Web_php/index.php?contenido=subapartados_woden&id_boto=71&contenido=subapartados_woden&id_boto=71">
+        <script type="text/javascript">
+            copyright=new Date();					
+            update=copyright.getFullYear();					
+            document.write("© 2021 - " + update + " " + "Ajuntament de Gandia");				
+        </script>
+    </a>
+		</footer>
 
 		<!-- Theme Custom -->
 		<script src="js/custom.js"></script>
@@ -73,25 +72,23 @@
 
         for (let i = 0; i < array[key]['puntsDia'].length; i++) {
           $(wrapperPunts).append(
-/*             '<a class="my-1 pointer-event" id="linkSeek" data-seek="' + array[key]['puntsDia'][i]['time'] + '">Punt ' + puntToString(array[key]['puntsDia'][i]['punt']) +': ' + array[key]['puntsDia'][i]['title'] + '</a>' +
-						'<hr>' */
             '<h2 class="accordion-header accordion-item" id="heading'+ i + '">'+
               '<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse'+ i + '" aria-expanded="true" aria-controls="collapse'+ i + '">Punt '+
                 puntToString(array[key]['puntsDia'][i]['punt']) +': ' +
                 array[key]['puntsDia'][i]['title'] +
               '</button>'+
             '</h2>'+
-            '<div id="collapse'+ i + '" class="accordion-collapse collapse show" aria-labelledby="heading'+ i + '" data-bs-parent="#accordionExample">'+
+            '<div id="collapse'+ i + '" class="accordion-collapse collapse" aria-labelledby="heading'+ i + '" data-bs-parent="#accordionExample">'+
               '<div class="accordion-body">'+
                 '<ul id="div_intervencions'+ i + '" class="m-0 p-0"></ul>'+
               '</div>'
           );
-          for (let j = 0; j < array[key]['links'].length; j++) {
+          for (let j = 0; j < array[key]['puntsDia'][i]['interventions'].length; j++) {
             let speaker;
             let time;
-            if(array[key]['links'][j]['speaker'] != "silencio"){
-              speaker = array[key]['links'][j]['speaker'];
-              time = array[key]['links'][j]['time'];
+            if(array[key]['puntsDia'][i]['interventions'][j]['speaker'] != "silencio"){
+              speaker = array[key]['puntsDia'][i]['interventions'][j]['speaker'];
+              time = array[key]['puntsDia'][i]['interventions'][j]['time'];
             }else{
               continue;
             }
@@ -99,29 +96,11 @@
             var wrapperIntervencions = $("#div_intervencions"+i);
             $(wrapperIntervencions).append(
               '<li>'+
-              '<a class=" mx-3" id="linkSeek" data-seek="' + array[key]['links'][i]['time'] + '">Intervencio de ' + speaker +' - '+ secondsToString(time) + '</a>' +
+              '<a class=" mx-3" id="linkSeek" data-seek="' + time + '">Intervencio de ' + speaker +' - '+ secondsToString(time) + '</a>' +
               '</li>'
             );
           }
         }  
-
-      /*   
-          for (let i = 0; i < array[key]['links'].length; i++) {
-            let speaker;
-            let time;
-            if(array[key]['links'][i]['speaker'] != "silencio"){
-              speaker = array[key]['links'][i]['speaker'];
-              time = array[key]['links'][i]['time'];
-            }else{
-              continue;
-            }
-            
-            $(wrapperIntervencions).append(
-              '<a class=" mx-3" id="linkSeek" data-seek="' + array[key]['links'][i]['time'] + '">Intervencio de ' + speaker +' - '+ secondsToString(time) + '</a>' +
-              '<hr>'
-            );
-          } 
-      */
 
       }); 
 

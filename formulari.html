@@ -86,7 +86,6 @@
         $.getJSON('txt/plenari.json', function(json){
             let array = json;
             plenari = JSON.stringify(array).slice(0, -1);
-            console.log(plenari);
         });
 
         var x = 1; //initlal text box count
@@ -112,18 +111,16 @@
             if ($(this).val()) {
                 $('#file').prop('disabled', false);
                 plenari +=  sessio +
-                '"url": "' + document.getElementById('url').value + '" ,' +
-                '"links": '
+                '"url": "' + document.getElementById('url').value + '" ,' 
             } else {
                 $('#file').prop('disabled', true);
                 plenari = sessio +
-                '"url": "" ,' +
-                '"links": '
+                '"url": "" ,' 
             }
         })
 
+        var frames = [];
         $('#file').on('change', function () {
-            //function getFile() {
             var file = $('#file')[0].files[0];
             var fileReader = new FileReader();
             fileReader.readAsText(file);
@@ -135,7 +132,7 @@
 
                 //convert from txt to json file
                 var result = [];
-                var frames = [];                
+                                
                 for (let i = 1; i < lines.length; i++) {
                     var obj = {};
                     var currentline = lines[i].split(";");
@@ -164,11 +161,13 @@
                     url['speaker'] = speak;
                     frames.push(url);
                 }
-                let ob = {};
+               /*  let ob = {};
                 ob['links'] = frames;
                 plenari += JSON.stringify(ob['links']);
-                plenari += ', ';
-                console.log(plenari);
+                plenari += ', '; */
+
+                //console.log(frames);
+                
             }            
         });
 
@@ -177,8 +176,10 @@
             plenari += '"puntsDia": ';
             var form = document.getElementById('myForm');
             let punts = [];
-
+            let lastTime = 0;
+            
             for (var i = 0; i < document.getElementsByName('punt').length / 2; i++) {
+                let intervents = [];
                 let obj = {};
                 let puntname = '#punt' + i;
                 let timename = '#time' + i;
@@ -188,21 +189,31 @@
                 obj['punt'] = i;
                 obj['title'] = punt.value;
                 obj['time'] = toSeconds(time.value);
-                //obj['url'] = urlWithSecs(document.getElementById('url').value, time.value);
-
+                
+                
+                for (let j = 0; j < frames.length; j++) {
+                    if(frames[j]['time'] > lastTime && frames[j]['time'] < obj['time']){
+                        intervents.push(frames[j]);
+                    }                    
+                }
+                
+                obj['interventions'] = intervents;
+                lastTime = obj['time'];
                 punts.push(obj);
+                
             }
             let ob = {};
             ob['punts'] = punts;
             plenari += JSON.stringify(ob['punts']);
             plenari += '}}';
-            //console.log(plenari);
+            
+            console.log(plenari);
 
             //guardar com a fitxer
-            jsonName = 'plenari';
+            /* jsonName = 'plenari';
             var blob = new Blob([plenari],
                 { type: "text/plain;charset=utf-8" });
-            saveAs(blob, jsonName + ".json");
+            saveAs(blob, jsonName + ".json"); */
 
             return false;
         }

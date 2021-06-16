@@ -23,7 +23,7 @@ a{
 }
 
 footer{
-    position: absolute;
+    display: block;
     bottom: 0;
     margin-bottom: 40px;    
     margin-top: 20px;
@@ -73,7 +73,6 @@ footer{
 
 
 nav > ul > li { 
-    background-color: aqua;   
     line-height: 40px;
     width: 50%;
     align-content: center;

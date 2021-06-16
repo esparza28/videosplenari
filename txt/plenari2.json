@@ -11,7 +11,6 @@
                 "time": 102,
                 "speaker": "silencio"
             }
-            
         ],
         "puntsDia": [
             {
@@ -25,8 +24,8 @@
                 "time": 5886
             }
         ]
-    }
-    ,"sessio10/6/2021": {
+    },
+    "sessio10/6/2021": {
         "data": "10/6/2021",
         "url": "https://www.youtube.com/watch?v=yUrfMBELDi4",
         "links": [
@@ -38,7 +37,6 @@
                 "time": 102,
                 "speaker": "silencio"
             }
-            
         ],
         "puntsDia": [
             {
@@ -50,6 +48,156 @@
                 "punt": 1,
                 "title": "Reforma del castell de Bairén",
                 "time": 5886
+            }
+        ]
+    },
+    "sessio15/6/2021": {
+        "data": "15/6/2021",
+        "url": "https://www.youtube.com/watch?v=asMxLEpFWrw",
+        "links": [
+            {
+                "time": 6,
+                "speaker": 1
+            },
+            {
+                "time": 16,
+                "speaker": "silencio"
+            },
+            {
+                "time": 27,
+                "speaker": 15
+            },
+            {
+                "time": 38,
+                "speaker": "silencio"
+            },
+            {
+                "time": 44,
+                "speaker": 21
+            },
+            {
+                "time": 58,
+                "speaker": "silencio"
+            },
+            {
+                "time": 62,
+                "speaker": 3
+            },
+            {
+                "time": 70,
+                "speaker": "silencio"
+            },
+            {
+                "time": 72,
+                "speaker": 17
+            },
+            {
+                "time": 84,
+                "speaker": "silencio"
+            },
+            {
+                "time": 86,
+                "speaker": 10
+            },
+            {
+                "time": 93,
+                "speaker": "silencio"
+            },
+            {
+                "time": 98,
+                "speaker": "silencio"
+            }
+        ],
+        "puntsDia": [
+            {
+                "punt": 0,
+                "title": "caca",
+                "time": 60
+            },
+            {
+                "punt": 1,
+                "title": "sasa",
+                "time": 120
+            },
+            {
+                "punt": 2,
+                "title": "zaza",
+                "time": 180
+            }
+        ]
+    },
+    "sessio16/6/2021": {
+        "data": "16/6/2021",
+        "url": "https://www.youtube.com/watch?v=yUrfMBELDi4",
+        "puntsDia": [
+            {
+                "punt": 0,
+                "title": "qwe",
+                "time": 30,
+                "interventions": [
+                    {
+                        "time": 6,
+                        "speaker": 1
+                    },
+                    {
+                        "time": 16,
+                        "speaker": "silencio"
+                    },
+                    {
+                        "time": 27,
+                        "speaker": 15
+                    }
+                ]
+            },
+            {
+                "punt": 1,
+                "title": "121",
+                "time": 60,
+                "interventions": [
+                    {
+                        "time": 38,
+                        "speaker": "silencio"
+                    },
+                    {
+                        "time": 44,
+                        "speaker": 21
+                    },
+                    {
+                        "time": 58,
+                        "speaker": "silencio"
+                    }
+                ]
+            },
+            {
+                "punt": 2,
+                "title": "qwe",
+                "time": 94,
+                "interventions": [
+                    {
+                        "time": 62,
+                        "speaker": 3
+                    },
+                    {
+                        "time": 70,
+                        "speaker": "silencio"
+                    },
+                    {
+                        "time": 72,
+                        "speaker": 17
+                    },
+                    {
+                        "time": 84,
+                        "speaker": "silencio"
+                    },
+                    {
+                        "time": 86,
+                        "speaker": 10
+                    },
+                    {
+                        "time": 93,
+                        "speaker": "silencio"
+                    }
+                ]
             }
         ]
     }
