@@ -34,17 +34,14 @@ footer{
 
 /* Estilos Lista desplegable */
 
-.accordion-item > h2 > button{
+.accordion-item > h3 > button{
     line-height: 30px;
-    width: 100%;
-    text-align: left;   
     background-color: #815c99;
     border: 1px solid gray;
     border-radius: 3px;
     margin: 0px;
     color: white;
     padding: 5px;
-    font-size: 20px;
 }
 
 .pleLista ul li{   
@@ -58,7 +55,6 @@ footer{
 #texteIni{
     background-color: rgb(235, 235, 235);
     border-radius: 5px;
-    width: 30%;
     font-size: 15px;
     padding: 10px;
     margin: 15px;
@@ -68,10 +64,7 @@ footer{
 
 nav > ul > li { 
     line-height: 40px;
-    width: 50%;
-    align-content: center;
-    line-height: 40px;
-    justify-content: center;
+    width: 450px;
     border-radius: 5px;    
 }
 
