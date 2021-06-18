@@ -1,0 +1,136 @@
+
+[{
+    "name" : "Diana Morant (Alcaldesa)",
+    "micro" : "15",
+    "img": "diana_morant.jpg"
+},
+{
+    "name" : "Vanesa Felip (Secretaria)",
+    "micro" : "19",
+    "img": "vanesa_felip.jpg"
+},
+{
+    "name" : "Jorge Garcia (Interventor)",
+    "micro" : "20",
+    "img" : "jorge_garcia.jpg"
+},
+{
+    "name" : "José Manuel Prieto (PSOE)",
+    "micro" : "14",
+    "img": "jose_manuel_prieto.jpg"
+},
+{
+    "name" : "Carmen Fuster (PSOE)",
+    "micro" : "13",
+    "img" : "carmen_fuster.jpg"
+},
+{
+    "name" : "Miguel Angel Picornell (PSOE)",
+    "micro" : "12",
+    "img": "miguel_angel_picornell.jpg"
+},
+{
+    "name" : "Liduvina Gil (PSOE)",
+    "micro" : "10",
+    "img" : "liduvina_gil.jpg"
+},
+{
+    "name" : "Vicent Mascarell (PSOE)",
+    "micro" : "9",
+    "img": "vicent_mascarell.jpg"
+},
+{
+    "name" : "Lydia Morant (PSOE)",
+    "micro" : "8",
+    "img": "lydia_morant.jpg"
+},
+{
+    "name" : "Salvador Gregori (PSOE)",
+    "micro" : "7",
+    "img": "salvador_gregori.jpg"
+},
+{
+    "name" : "Amparo Victoria (PSOE)",
+    "micro" : "6",
+    "img": "amparo_victoria.jpg"
+},
+{
+    "name" : "Nacho Arnau (PSOE)",
+    "micro" : "5",
+    "img": "nacho_arnau.jpg"
+},
+{
+    "name" : "Juana Navarro (PSOE)",
+    "micro" : "2",
+    "img" : "juana_navarro.jpg"
+},
+{
+    "name" : "Josep Alandete (Compromís MGU)",
+    "micro" : "11",
+    "img": "josep_alandete.jpg"
+},
+{
+    "name" : "Alicia Izquierdo  (Compromís MGU)",
+    "micro" : "4",
+    "img": "alicia_izquierdo.jpg"
+},
+{
+    "name" : "Ferran Martinez  (Compromís MGU)",
+    "micro" : "3",
+    "img": "ferran_martinez.jpg"
+},
+{
+    "name" : "Nahuel Gonzalez  (Compromís MGU)",
+    "micro" : "1",
+    "img": "nahuel_gonzalez.jpg"
+},
+{
+    "name" : "Victor Soler (PP)",
+    "micro" : "21",
+    "img": "victor_soler.jpg"
+},
+{
+    "name" : "Vicent Gregori  (PP)",
+    "micro" : "23",
+    "img": "vicent_gregori.jpg"
+},
+{
+    "name" : "Guillermo Barber (PP)",
+    "micro" : "24",
+    "img": "guillermo_barber.jpg"
+},
+{
+    "name" : "Carmen Roman (PP)",
+    "micro" : "25",
+    "img": "carmen_roman.jpg"
+},
+{
+    "name" : "Gemma Garcia (PP)",
+    "micro" : "26",
+    "img": "gemma_garcia.jpg"
+},
+{
+    "name" : "Antoni Rodriguez (PP)",
+    "micro" : "27",
+    "img": "antoni_rodriguez.jpg"
+},
+{
+    "name" : "Cristina Moreno (PP)",
+    "micro" : "16",
+    "img": "cristina_moreno.jpg"
+},
+{
+    "name" : "Daniel Marti (PP)",
+    "micro" : "17",
+    "img": "daniel_marti.jpg"
+},
+{
+    "name" : "Antoni Abad (PP)",
+    "micro" : "18",
+    "img": "antoni_abad.jpg"
+},
+{
+    "name" : "Pascal Renolt (Ciudadanos)",
+    "micro" : "22",
+    "img": "pascal_renolt.jpg"
+}]

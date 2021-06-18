@@ -57,17 +57,20 @@
       var wrapperPunts = $("#div_punts");
       //var wrapperIntervencions = $("#div_intervencions");
       var titleVideo = $("#title_video");
-      var youtubeUrl= "";
-      var array=[];
       var key = window.location.search.substr(1);
+      var youtubeUrl= "";
+      var array, micros = [];
+
+      $.getJSON('json/micros.json', function(response){
+        micros = response;          
+      });
 
 
-      $.getJSON('txt/plenari.json', function(json){
-        array = json;
+      $.getJSON('json/plenari.json', function(response){
+        array = response;
         titleVideo.text('Sessió parlamentaria ' + array[key]['data']);
 
         let url = array[key]['url'];
-        titleVideo.text('Sessió parlamentaria ' + array[key]['data']);
         youtubeUrl = url.split('v=')[1];
 
         for (let i = 0; i < array[key]['puntsDia'].length; i++) {
@@ -80,23 +83,33 @@
             '</h2>'+
             '<div id="collapse'+ i + '" class="accordion-collapse collapse" aria-labelledby="heading'+ i + '" data-bs-parent="#accordionExample">'+
               '<div class="accordion-body">'+
-                '<ul id="div_intervencions'+ i + '" class="m-0 p-0"></ul>'+
+                '<ul id="div_intervencions'+ i + '" class="m-0 p-0 list-group list-group-flush"></ul>'+
               '</div>'
           );
           for (let j = 0; j < array[key]['puntsDia'][i]['interventions'].length; j++) {
-            let speaker;
-            let time;
+            let speaker, time, name, img;
+
             if(array[key]['puntsDia'][i]['interventions'][j]['speaker'] != "silencio"){
               speaker = array[key]['puntsDia'][i]['interventions'][j]['speaker'];
               time = array[key]['puntsDia'][i]['interventions'][j]['time'];
             }else{
               continue;
             }
+
+            for (let z = 0; z < micros.length; z++) {
+              if(micros[z]['micro'] == speaker){
+                name = micros[z]['name'];
+                img = micros[z]['img'];
+                console.log(img)
+              }              
+            }
+
             
             var wrapperIntervencions = $("#div_intervencions"+i);
             $(wrapperIntervencions).append(
-              '<li>'+
-              '<a class=" mx-3" id="linkSeek" data-seek="' + time + '">Intervencio de ' + speaker +' - '+ secondsToString(time) + '</a>' +
+              '<li class="m-0 p-1 list-group-item d-flex align-items-center">'+
+              '<img class="avatar" src="img/'+ img +'">' + /* '<a  class="m-0 p-0" href="'+ info +'" ><img class="avatar" src="img/'+ img +'"></a>' +  */
+              '<a class="mx-2" id="linkSeek" data-seek="' + time + '">' + name +' - '+ secondsToString(time) + '</a>' +
               '</li>'
             );
           }

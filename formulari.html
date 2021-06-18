@@ -27,7 +27,7 @@
             <h1 class="text-center p-1 text-light m-auto">Sessió parlamentaria</h1>
             <img  style="width: 5%;" src="https://www.gandia.es/aytg/Web_php/imatges/icones/escudo_logo_ajuntament_gandia_valencia.png" alt="">
         </div>
-        <form id="myForm" class="p-5" onsubmit='return get()'>
+        <form id="myForm" class="p-5" onsubmit='return accept()'>
             <div class="row col-sm" id="input_fields_wrap">
                 <div class="d-flex py-5 justify-content-center">
                     <h4 class="form-group p-1" for="url">URL youtube: </h4>
@@ -55,15 +55,16 @@
                 </div>
             </div>
             <div class="row justify-content-end">
-                <button class="col-1 btn btn-outline-success p-0 btn-sm h-30 m-4" id="add_button"><i
-                        class="fas fa-plus-circle"></i>Afegir
+                <button class="col-1 btn btn-outline-success p-0 btn-sm h-30 m-4 " id="add_button">
+                    <i class="fas fa-plus-circle"></i>
+                    Afegir
                 </button>
             </div>
-
-            <div class="d-flex justify-content-center">
-                <button class="btn btn-outline-primary btn-lg" type="submit">Registrar</button>
-            </div>
         </form>
+
+        <div class="d-flex justify-content-center">
+            <button class="btn btn-outline-primary btn-lg text-uppercase" onclick="accept()">Registrar</button>
+        </div>
     </div>
 
     <!-- Theme Custom -->
@@ -83,7 +84,15 @@
 
         var sessio = ',"sessio' + formatDate(new Date()) + '": {"data": "' + formatDate(new Date()) + '" , '; 
 
-        $.getJSON('txt/plenari.json', function(json){
+        function accept(){
+            if(confirm('Una vegada creat el fitxer, aquesto no podrà ser modificat. Segur que es vol crear?')){
+                get();
+            }else{
+                console.log('caca');
+            }
+        }
+
+        $.getJSON('json/plenari.json', function(json){
             let array = json;
             plenari = JSON.stringify(array).slice(0, -1);
         });
@@ -206,15 +215,12 @@
             ob['punts'] = punts;
             plenari += JSON.stringify(ob['punts']);
             plenari += '}}';
-            
-            console.log(plenari);
 
             //guardar com a fitxer
-            /* jsonName = 'plenari';
+            jsonName = 'plenari';
             var blob = new Blob([plenari],
                 { type: "text/plain;charset=utf-8" });
-            saveAs(blob, jsonName + ".json"); */
-
+            saveAs(blob, jsonName + ".json"); 
             return false;
         }
 
