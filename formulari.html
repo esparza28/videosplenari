@@ -159,12 +159,15 @@
 
                     var speak = 'silencio';
                     var speak1 = 'silencio';
+                    let c=0;
                     for (let j = 0; j < headers.length; j++) {
-                        let c=0;
-                        console.log(c);
+                        
+                        
                         if (json[i]['AUDIO ' + j] === 'HABLA') {
+                            c=c+1;
                            if(c <= 0){
                             speak = j;
+                            
                         }else{
                             speak1 = j;
                         }
@@ -179,7 +182,7 @@
                                 }
                             }
                         }
-                        c=c+1;
+                        c=0;
                         
                         //break;
 
