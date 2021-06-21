@@ -160,8 +160,13 @@
                     var speak = 'silencio';
                     for (let j = 0; j < headers.length; j++) {
                         if (json[i]['AUDIO ' + j] === 'HABLA') {
-                            speak = j;
-                            break;
+                            if(json[i-1]['AUDIO 15'] === 'SILENCIO'){
+                                speak = ['AUDIO 15'];
+                                break;
+                            }else{
+                                speak = j;
+                                break;
+                            }
                         }
                     }
                     url['speaker'] = speak;
