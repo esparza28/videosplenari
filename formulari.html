@@ -25,9 +25,7 @@
     <div>
         <div class="colorMorat d-flex row justify-content-center">
             <h1 class="text-center p-1 text-light m-auto">Sessió parlamentaria</h1>
-            <img style="width: 5%;"
-                src="https://www.gandia.es/aytg/Web_php/imatges/icones/escudo_logo_ajuntament_gandia_valencia.png"
-                alt="">
+            <img  style="width: 5%;" src="https://www.gandia.es/aytg/Web_php/imatges/icones/escudo_logo_ajuntament_gandia_valencia.png" alt="">
         </div>
         <form id="myForm" class="p-5" onsubmit='return accept()'>
             <div class="row col-sm" id="input_fields_wrap">
@@ -39,18 +37,18 @@
                 </div>
                 <div class="d-flex justify-content-center mb-5">
                     <h4 class="form-group m-0 p-2" for="url">Fitxer de la sessió: </h4>
-                    <input class="form-group p-2" type="file" name="file" id="file" accept=".txt, .csv" required
-                        disabled>
+                    <input class="form-group p-2" type="file" name="file"  id="file"
+                        accept=".txt, .csv" required disabled>
                 </div>
 
                 <h4 class="form-group col-md-6" for="punt">Punt del dia</h4>
                 <h4 class="form-group col-md-6" for="time">Temps (hh:mm:ss)</h4>
-
+                
                 <div class="form-group row" id="divPunts">
                     <input class="form-group col m-1 h-30" type="text" name="punt" class="form-control" id="punt0"
                         placeholder="Ex. Rebaixada de sous dels regidors." required>
-                    <input class="form-group col m-1 h-30" type="time" step="1" name="punt" class="form-control"
-                        id="time0" value="00:00:00" required>
+                    <input class="form-group col m-1 h-30" type="time" step="1" name="punt" class="form-control" id="time0"
+                        value="00:00:00" required>
                     <button class="col-1 btn btn-outline-danger p-0 mt-1 btn-sm h-30" id="remove_field">
                         <i class="fas fa-minus-circle"></i>Eliminar
                     </button>
@@ -83,15 +81,15 @@
         var wrapper = $("#input_fields_wrap"); //Fields wrapper
         var add_button = $("#add_button"); //Add button ID
 
-        var sessio = ',"sessio' + formatDate(new Date()) + '": {"data": "' + formatDate(new Date()) + '" , ';
+        var sessio = ',"sessio' + formatDate(new Date()) + '": {"data": "' + formatDate(new Date()) + '" , '; 
 
-        function accept() {
-            if (confirm('Una vegada creat el fitxer, aquesto no podrà ser modificat. Segur que es vol crear?')) {
+        function accept(){
+            if(confirm('Una vegada creat el fitxer, aquesto no podrà ser modificat. Segur que es vol crear?')){
                 get();
             }
         }
 
-        $.getJSON('json/plenari.json', function (json) {
+        $.getJSON('json/plenari.json', function(json){
             let array = json;
             plenari = JSON.stringify(array).slice(0, -1);
         });
@@ -118,12 +116,12 @@
         $('#url').on('input', function () {
             if ($(this).val()) {
                 $('#file').prop('disabled', false);
-                plenari += sessio +
-                    '"url": "' + document.getElementById('url').value + '" ,'
+                plenari +=  sessio +
+                '"url": "' + document.getElementById('url').value + '" ,' 
             } else {
                 $('#file').prop('disabled', true);
                 plenari = sessio +
-                    '"url": "" ,'
+                '"url": "" ,' 
             }
         })
 
@@ -140,7 +138,7 @@
 
                 //convert from txt to json file
                 var result = [];
-
+                                
                 for (let i = 1; i < lines.length; i++) {
                     var obj = {};
                     var currentline = lines[i].split(";");
@@ -160,27 +158,44 @@
                     url['time'] = toSeconds(time);
 
                     var speak = 'silencio';
-                    if (i === 0) {
-                        break;
-                    }
-                    if (json[i - 1]['AUDIO 15'] === 'SILENCIO') {
-                        speak = ['AUDIO 15'];
-                        break;
-                    }else {
-                        for (let j = 0; j < headers.length; j++) {
-                            if (json[i]['AUDIO ' + j] === 'HABLA' && j != 15) {
-                                speak = j;
-                                break;
-                                
+                    var speak1 = 'silencio';
+                    for (let j = 0; j < headers.length; j++) {
+                        let c=0;
+                        console.log(c);
+                        if (json[i]['AUDIO ' + j] === 'HABLA') {
+                           if(c <= 0){
+                            speak = j;
+                        }else{
+                            speak1 = j;
+                        }
+                           
+
+                        if (c > 1){
+                            if (json[i-1]['AUDIO ' + 15] === 'HABLA') {
+                                speak = 15;
+                            }else{
+                                if(speak == 15){
+                                    speak = speak1
+                                }
                             }
+                        }
+                        c=c+1;
+                        
+                        //break;
+
                         }
                     }
                     url['speaker'] = speak;
                     frames.push(url);
                 }
+               /*  let ob = {};
+                ob['links'] = frames;
+                plenari += JSON.stringify(ob['links']);
+                plenari += ', '; */
 
-
-            }
+                //console.log(frames);
+                
+            }            
         });
 
         //generar json desde form
@@ -189,7 +204,7 @@
             var form = document.getElementById('myForm');
             let punts = [];
             let lastTime = 0;
-
+            
             for (var i = 0; i < document.getElementsByName('punt').length / 2; i++) {
                 let intervents = [];
                 let obj = {};
@@ -201,18 +216,18 @@
                 obj['punt'] = i;
                 obj['title'] = punt.value;
                 obj['time'] = toSeconds(time.value);
-
-
+                
+                
                 for (let j = 0; j < frames.length; j++) {
-                    if (frames[j]['time'] > lastTime && frames[j]['time'] < obj['time']) {
+                    if(frames[j]['time'] > lastTime && frames[j]['time'] < obj['time']){
                         intervents.push(frames[j]);
-                    }
+                    }                    
                 }
-
+                
                 obj['interventions'] = intervents;
                 lastTime = obj['time'];
                 punts.push(obj);
-
+                
             }
             let ob = {};
             ob['punts'] = punts;
@@ -223,7 +238,7 @@
             jsonName = 'plenari';
             var blob = new Blob([plenari],
                 { type: "text/plain;charset=utf-8" });
-            saveAs(blob, jsonName + ".json");
+            saveAs(blob, jsonName + ".json"); 
             return false;
         }
 
