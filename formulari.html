@@ -160,6 +160,9 @@
                     url['time'] = toSeconds(time);
 
                     var speak = 'silencio';
+                    if (i === 0) {
+                        break;
+                    }
                     if (json[i - 1]['AUDIO 15'] === 'SILENCIO') {
                         speak = ['AUDIO 15'];
                         break;
@@ -167,7 +170,8 @@
                         for (let j = 0; j < headers.length; j++) {
                             if (json[i]['AUDIO ' + j] === 'HABLA' && j != 15) {
                                 speak = j;
-                                break;                                
+                                break;
+                                
                             }
                         }
                     }
