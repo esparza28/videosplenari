@@ -127,6 +127,7 @@
             }
         })
 
+        var preframes = [];
         var frames = [];
         $('#file').on('change', function () {
             var file = $('#file')[0].files[0];
@@ -158,24 +159,58 @@
                     var url = {};
                     let time = json[i]['00:00:00'];
                     url['time'] = toSeconds(time);
+                    if(i > 0){
+                        if(toSeconds(json[i-1]['00:00:00']) === url['time'] ){
+                            continue;
+                        }
+                    } 
 
+                    var speakers = [];
                     var speak = 'silencio';
                     for (let j = 0; j < headers.length; j++) {
                         if (json[i]['AUDIO ' + j] === 'HABLA') {
-                            speak = j;
-                            break;
+                            speakers.push(j);
+                        }
+                        if(speakers.length > 1){
+                            for (let z = 0; z < speakers.length; z++) {
+                                if(i > 0){
+                                    if(speakers[z] === 15 && json[i-1]['AUDIO 15'] === 'SILENCIO'){
+                                        speak = 15;
+                                        break;
+                                    }else{
+                                        speak = speakers[z];
+                                    }
+                                }
+                            }
+                        }else{
+                            if(speakers.length != 0){
+                                speak = speakers[0];
+                            }else{
+                                continue;
+                            }
                         }
                     }
+
+                    if(speak == 'silencio'){
+                        continue;
+                    } 
                     url['speaker'] = speak;
-                    frames.push(url);
+                    preframes.push(url);
+                }
+
+                for (let i = 0; i < preframes.length; i++) {
+                    if(i > 0){
+                        if(preframes[i]['speaker'] == preframes[i-1]['speaker']){
+                            continue;
+                        }else{
+                            frames.push(preframes[i]);
+                        }
+                    }                    
                 }
                /*  let ob = {};
                 ob['links'] = frames;
                 plenari += JSON.stringify(ob['links']);
                 plenari += ', '; */
-
-                //console.log(frames);
-                
             }            
         });
 
