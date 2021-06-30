@@ -65,7 +65,9 @@
         micros = response;          
       });
       
-      delay('1000');
+      setTimeout(() => {
+  console.log("1 Segundo esperado")
+}, 1000);
 
 
       $.getJSON('json/plenari.json', function(response){
