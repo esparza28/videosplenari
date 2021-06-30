@@ -69,7 +69,7 @@
   console.log("1 Segundo esperado")
 }, 1000);
 
-console.log(micros);
+
 
 
       $.getJSON('json/plenari.json', function(response){
@@ -104,6 +104,7 @@ console.log(micros);
 
             for (let z = 0; z < micros.length; z++) {
               if(micros[z]['micro'] == speaker){
+                  console.log(micros[z]['name']);
                 name = micros[z]['name'];
                 img = micros[z]['img'];
               }              
