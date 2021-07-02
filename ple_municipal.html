@@ -197,9 +197,10 @@
     //codigo para recargar pagina la primera vez.
                 var queryString = window.location.search;
                 var urlParams = new URLSearchParams(queryString);
-                console.log(urlParams.get('reload') === false);
-                if (urlParams.get('reload') === false) {
-                    location.href = "window.location" + "&reload=1";
+                var anuncioParam = urlParams.get('reload');
+                console.log(anuncioParam);
+                if (anuncioParam != "f") {
+                    location.href = "window.location" + "&reload=f";
                 }
 
 
