@@ -62,11 +62,10 @@
       var array, micros = [];
 
       $.getJSON('json/micros.json', function(response){
-        micros = response;          
-      });
-
-
-      $.getJSON('json/plenari.json', function(response){
+        micros = response;
+        
+        
+        $.getJSON('json/plenari.json', function(response){
         array = response;
         titleVideo.text('Sessió plenaria ' + array[key]['data']);
 
@@ -114,6 +113,11 @@
         }  
 
       }); 
+        
+      });
+
+
+      
 
       //////////////////////////////////////////////////////
       // 2. This code loads the IFrame Player API code asynchronously.
