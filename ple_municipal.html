@@ -62,16 +62,13 @@
                 var array, micros = [];
 
 
-                function LlenarMatriz()
-                {
-                    $.getJSON('json/micros.json', function (response) {
+                function getJson(){
+                     $.getJSON('json/micros.json', function (response) {
                         micros = response;
                     });
+                    
+                    
                 }
-
-                LlenarMatriz([], function () {
-
-                })
 
 
 
@@ -193,7 +190,7 @@
                     return punt + 1;
                 }
 
-
+if 
     
         </script>
 
