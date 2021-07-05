@@ -65,13 +65,16 @@
   console.log( "JSON Data: " + json );
  });
 
-                function getJson(){
-                     $.getJSON('json/micros.json', function (response) {
+                function LlenarMatriz()
+                {
+                    $.getJSON('json/micros.json', function (response) {
                         micros = response;
                     });
-                    
-                    
                 }
+
+                LlenarMatriz([], function () {
+
+                })
 
 
 
@@ -194,7 +197,10 @@
                 }
 
 
+<<<<<<< HEAD
     //codigo para recargar pagina la primera vez.
+=======
+>>>>>>> parent of 8b13c22 (sin function)
     
     /*
                 var queryString = window.location.search;
